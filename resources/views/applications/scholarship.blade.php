@@ -724,7 +724,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Dependent Status</label>
+                                                                <label class="add-course-label">Parental Status</label>
                                                                 <select name="dependent" class="form-control select" id="dependent" onchange="dependentstatus()">
                                                                     <option value="" selected>Select</option>
                                                                     <option value="Both parent living">Both Parents Living</option>
