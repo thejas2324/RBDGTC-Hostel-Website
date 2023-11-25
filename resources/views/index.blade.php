@@ -5,7 +5,7 @@
 <section class="home-slide d-flex align-items-center">
     <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators ">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -110,7 +110,7 @@
 
 <section class="section how-it-works">
     <div class="container">
-        
+
         <div class="owl-carousel mentoring-course owl-theme aos" data-aos="fade-up">
             <a data-toggle="modal" data-target=".bd-example-modal-lg">
                 <div class="feature-box text-center" style="background-color: #f7ebd6;">
