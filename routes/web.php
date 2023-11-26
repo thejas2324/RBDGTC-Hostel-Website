@@ -73,6 +73,10 @@ Route::post('/admincheck', [loginController::class, 'admin_check']);
 Route::get('profileshow', [loginController::class, 'admin_profile']);
 Route::post('/adminreg_check', [loginController::class, 'admin_reg_check']);
 Route::get('/admin_logout', [loginController::class, 'admin_logout']);
+Route::get('adminforgetpass', [loginController::class, 'admin_forgetpassword']);
+Route::post('/adminforgetpassword', [loginController::class, 'admin_forget_password']);
+Route::post('/adminresetpassword', [loginController::class, 'admin_reset_password']);
+
 
 //admin main
 //add links

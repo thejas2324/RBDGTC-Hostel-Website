@@ -35,7 +35,11 @@ class loginController extends Controller
     {
         return view('auth.forgetpass');
     }
-
+    //admin forget password
+    function admin_forgetpassword()
+    {
+        return view('admin.auth.forget_password');
+    }
     //admin login check
     function admin_check(Request $request)
     {
@@ -97,10 +101,21 @@ class loginController extends Controller
         $forget = student_basedata::where('applicant_name', $request->fullname)->where('aadhar_number', $request->aadharnumber)->get();
         return $forget;
     }
-
     function reset_password(Request $request)
     {
         student_basedata::where('applicant_name', $request->fullname)->where('aadhar_number', $request->aadharnumber)->update(["password" => md5($request->password)]);
         return redirect('/studentlogin');
+    }
+
+    //admin forget password
+    function admin_forget_password(Request $request)
+    {
+        $forget = admin::where('name', $request->fullname)->where('email_id', $request->email)->where('user_type', $request->usertype)->get();
+        return $forget;
+    }
+    function admin_reset_password(Request $request)
+    {
+        admin::where('name', $request->fullname)->where('email_id', $request->email)->where('user_Type', $request->usertype)->update(["password" => md5($request->password)]);
+        return redirect('/adminlogin');
     }
 }

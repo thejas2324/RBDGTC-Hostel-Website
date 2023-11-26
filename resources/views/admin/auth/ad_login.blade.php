@@ -88,7 +88,7 @@
                                         <label for="exampleFormControlInput1" class="form-label mb-2 fs-13 label-color font-w500">Password</label>
                                         <input type="password" class="form-control" id="exampleFormControlInput2" name="password" placeholder="Password">
                                     </div>
-                                    <a href="#" class="text-primary float-end mb-4">Forgot Password ?</a>
+                                    <a href="adminforgetpass" class="text-primary float-end mb-4">Forgot Password ?</a>
                                     <input type="submit" class="btn btn-block btn-primary" value="Login">
 
                                 </form>

@@ -68,7 +68,7 @@
         <div class="login-aside text-center  d-flex flex-column flex-row-auto">
             <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
                 <div class="text-center mb-lg-4 mb-2 pt-5 logo">
-                    <img src="assets/img/thotadappa/logo2.png" alt="logo" style="width: 200px;">
+                    <img src="assets/img/thotadappa/logo4.png" alt="logo" style="width: 200px;">
                 </div>
             </div>
 

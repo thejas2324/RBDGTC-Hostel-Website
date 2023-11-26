@@ -100,7 +100,7 @@
 
         @media(min-width: 768px) {
             #img {
-                max-width: 150px;
+                max-width: 145px;
                 height: auto;
             }
 
