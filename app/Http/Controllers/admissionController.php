@@ -252,7 +252,7 @@ class admissionController extends Controller
             $image->move($destinationPath, $pg_markscard);
             $studentappdata["pg_markscard"] = $pg_markscard;
         }
-        
+
         //CET copy
         if ($request->hasfile('cetcopy_image')) {
             $image = $request->file('cetcopy_image');
@@ -275,7 +275,7 @@ class admissionController extends Controller
             $studentappdata["clg_admission_receipt"] = $feereceipt;
         }
 
-        // special_achievement
+        // achievement certificate
         if ($request->hasfile('achievements_certificate')) {
             $image = $request->file('achievements_certificate');
 
@@ -284,7 +284,7 @@ class admissionController extends Controller
             $destinationPath = public_path('admissions/achievements_certificates');
             $image->move($destinationPath, $ach_cer);
 
-            $studentappdata["special_achievement"] = $ach_cer;
+            $studentappdata["achievement_cer"] = $ach_cer;
         }
 
         //Guardian sign

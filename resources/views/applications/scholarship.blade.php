@@ -37,6 +37,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
+        function validate_marks(mobile) {
+            var pattern = /^[0-9]+$/;
+            if (!pattern.test(mobile) || mobile.length > 3) {
+                return false;
+            }
+            return true;
+        }
+
         function dependentstatus() {
             if ($('#dependent').val() == "Single parent") {
                 $('#singleparentstatus').show();
@@ -450,12 +458,20 @@
                     $('#sslcmarks-error').html('Please Fill SSLC Marks');
                     $('#sslcmarks-error').show('fast');
                     $('#sslcmarks').focus();
+                } else if (!validate_marks(sslcmarks)) {
+                    $('#sslcmarks-error').html('Dont Include % symbol');
+                    $('#sslcmarks-error').show('fast');
+                    $('#sslcmarks').focus();
                 } else if (sslcmarkscard == "") {
                     $('#sslc-markscard-error').html('Please Fill SSLC Markscard');
                     $('#sslc-markscard-error').show('fast');
                     $('#sslc-markscard').focus();
                 } else if (puc_dip == "") {
                     $('#puc_marks-error').html('Please Fill PUC/Diploma Marks');
+                    $('#puc_marks-error').show('fast');
+                    $('#puc_marks').focus();
+                } else if (!validate_marks(puc_dip)) {
+                    $('#puc_marks-error').html('Dont Include % symbol');
                     $('#puc_marks-error').show('fast');
                     $('#puc_marks').focus();
                 } else if (puc_dip_markscard == "") {
@@ -470,6 +486,10 @@
                     $('#ug_marks-error').html('Please Fill Bachelors Marks');
                     $('#ug_marks-error').show('fast');
                     $('#ug_marks').focus();
+                } else if (bachelor_status == "Yes" && !validate_marks(ug_marks)) {
+                    $('#ug_marks-error').html('Dont Include % symbol');
+                    $('#ug_marks-error').show('fast');
+                    $('#ug_marks').focus();
                 } else if (bachelor_status == "Yes" && bachelors_markscard == "") {
                     $('#bachelors-markscard-error').html('Please Fill Bachelors Markscard');
                     $('#bachelors-markscard-error').show('fast');
@@ -480,6 +500,10 @@
                     $('#masters_status').focus();
                 } else if (bachelor_status == "Yes" && masters_status == "Yes" && pg_marks == "") {
                     $('#pg_marks-error').html('Please Fill Masters Marks');
+                    $('#pg_marks-error').show('fast');
+                    $('#pg_marks').focus();
+                } else if (bachelor_status == "Yes" && masters_status == "Yes" && !validate_marks(pg_marks)) {
+                    $('#pg_marks-error').html('Dont Include % symbol');
                     $('#pg_marks-error').show('fast');
                     $('#pg_marks').focus();
                 } else if (bachelor_status == "Yes" && masters_status == "Yes" && masters_markscard == "") {
@@ -693,12 +717,9 @@
                                                                 <div class="error-message text-danger" id="alternative_mobile-error"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="add-course-label">Year of course</label>
-                                                                <input type="text" name="year" value="<?php echo date('Y'); ?>" class="form-control" readonly>
-                                                            </div>
-                                                        </div>
+
+                                                        <input type="text" name="year" value="<?php echo date('Y'); ?>" class="form-control" readonly hidden>
+
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="add-course-label">Upload Your Signature</label>
@@ -887,8 +908,8 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">SSLC Percentage/CGPA</label>
-                                                                <input type="text" name="sslc_marks" value="{{$user->sslc_marks}}" id="sslcmarks" class="form-control" placeholder="ex:Percentage or CGPA">
+                                                                <label class="add-course-label">SSLC Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <input type="text" name="sslc_marks" value="{{$user->sslc_marks}}" id="sslcmarks" class="form-control" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="sslcmarks-error"></div>
                                                             </div>
                                                         </div>
@@ -903,8 +924,8 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">PUC/Diploma Percentage/CGPA</label>
-                                                                <input type="text" name="puc_marks" value="{{$user->puc_diploma_marks}}" id="puc_marks" class="form-control" placeholder="ex:Percentage or CGPA">
+                                                                <label class="add-course-label">PUC/Diploma Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <input type="text" name="puc_marks" value="{{$user->puc_diploma_marks}}" id="puc_marks" class="form-control" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="puc_marks-error"></div>
                                                             </div>
                                                         </div>
@@ -930,8 +951,8 @@
                                                         </div>
                                                         <div class="col-md-6" id="bachelor_fields">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Bachelor's degree Percentage/CGPA</label>
-                                                                <input type="text" name="ug_marks" class="form-control" id="ug_marks" placeholder="ex: Percentage or CGPA">
+                                                                <label class="add-course-label">Bachelor degree Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <input type="text" name="ug_marks" class="form-control" id="ug_marks" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="ug_marks-error"></div>
                                                             </div>
                                                         </div>
@@ -957,8 +978,8 @@
                                                         </div>
                                                         <div class="col-md-6" id="masters_fields">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Master's Percentage/CGPA</label>
-                                                                <input type="text" name="pg_marks" class="form-control" id="pg_marks" placeholder="ex:Percent or GCPA">
+                                                                <label class="add-course-label">Master degree Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <input type="text" name="pg_marks" class="form-control" id="pg_marks" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="pg_marks-error"></div>
                                                             </div>
                                                         </div>

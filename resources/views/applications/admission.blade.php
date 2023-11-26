@@ -44,7 +44,7 @@
         }
 
         function dependentstatus() {
-            if ($('#dependent').val() == "Single parent") {
+            if ($('#dependent').val() == "Single Parent") {
                 $('#singleparentstatus').show();
                 $('#orphanstatus1').hide();
                 $('#orphanstatus2').hide();
@@ -333,7 +333,6 @@
                     }
                 }
             }
-
 
             $('#personaltab').click(function() {
                 //tab 1
@@ -1010,7 +1009,7 @@
                                                         <div class="col-md-6" id="bachelor_fields">
                                                             <div class="form-group">
                                                                 <label class="add-course-label">Bachelor degree Percentage (Convert CGPA/SGPA into Percentage)</label>
-                                                                <input type="text" name="ug_marks" class="form-control" id="ug_marks" placeholder="ex: Percentage (Don't include % symbol)">
+                                                                <input type="text" name="ug_marks" class="form-control" id="ug_marks" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="ug_marks-error"></div>
                                                             </div>
                                                         </div>
