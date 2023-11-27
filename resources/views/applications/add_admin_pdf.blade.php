@@ -221,7 +221,6 @@
             <td>If the applicant has any relatives who have currently resided in our hostel,
                 kindly provide the relevant details of those individuals</td>
             <td>{{$data[0]->relative_name}} <br> {{$data[0]->relative_studied_year}} </td>
-
         </tr>
         <tr>
             <td>mode of accommodation last year?</td>

@@ -28,7 +28,7 @@
 
             // Send AJAX request to the server with selected filters
             $.ajax({
-                url: '/applications/filter', // Replace with your server endpoint
+                url: '/scholarship/filter', // Replace with your server endpoint
                 type: 'post', // or 'GET' depending on your server setup
                 data: data,
                 success: function(result) {
@@ -51,7 +51,7 @@
                                             <h6 class="mb-0">${result[i].dependent_status}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">${result[i].disability_status}</h6>
+                                            <h6 class="mb-0">${result[i].disability}</h6>
                                         </td>
                                         
                                         <td class="text-center">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <!-- filter -->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-2">
                             <select class="default-select form-control wide mt-3" id="filtercolumn" onchange="degreefilter()">
                                 <option value="" disabled selected>Select</option>
@@ -125,7 +125,7 @@
                         <div class="col-md-2 mt-3">
                             <button id="filterButton" type="submit" value="submit" class="btn btn-outline-primary me-3">Filter</button>
                         </div>
-                    </div>
+                    </div> -->
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
@@ -164,7 +164,7 @@
                                         <td>
                                             <h6 class="mb-0">{{$dt->disability}}</h6>
                                         </td>
-                                        
+
                                         <td>
                                             <h6 class="mb-0">
                                                 {{$dt->status}}

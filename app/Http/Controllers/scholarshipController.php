@@ -200,6 +200,17 @@ class scholarshipController extends Controller
             $scholarshipappdata["disability_certificate"] = $disability_cer;
         }
 
+        //fee receipt certificate
+        if ($request->hasfile('fee_receipt')) {
+            $image = $request->file('fee_receipt');
+
+            $fee_receipt = $request->applicant_name . uniqid() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('admissions/applicant_fee_receipt');
+            $image->move($destinationPath, $fee_receipt);
+            $scholarshipappdata["fee_receipt"] = $fee_receipt;
+        }
+
         //Under graduation markscard
         if ($request->hasfile('ug_markscard')) {
             $image = $request->file('ug_markscard');

@@ -201,6 +201,14 @@
                 validateFile(fileInput, maxFileSizeKB, errorMessageElement);
             });
 
+            // fee receipt File Input
+            $('#fee_receipt').on('change', function() {
+                var fileInput = this;
+                var maxFileSizeKB = 500; // Maximum file size in KB
+                var errorMessageElement = $('#fee_receipt-error');
+                validateFile(fileInput, maxFileSizeKB, errorMessageElement);
+            });
+
             // SSLC Markscard File Input
             $('#sslc-markscard').on('change', function() {
                 var fileInput = this;
@@ -427,6 +435,7 @@
                 let present_college_name = $('#present_college_name').val();
                 let present_course = $('#present_course').val();
                 let fee = $('#fee').val();
+                let fee_receipt = $('#fee_receipt').val();
                 let sslcmarks = $('#sslcmarks').val();
                 let sslcmarkscard = $('#sslc-markscard').val();
                 let puc_dip = $('#puc_marks').val();
@@ -454,6 +463,10 @@
                     $('#fee-error').html('Please Fill The amount');
                     $('#fee-error').show('fast');
                     $('#fee').focus();
+                } else if (fee_receipt == "") {
+                    $('#fee_receipt-error').html('Please Upload the Fee Receipt');
+                    $('#fee_receipt-error').show('fast');
+                    $('#fee_receipt').focus();
                 } else if (sslcmarks == "") {
                     $('#sslcmarks-error').html('Please Fill SSLC Marks');
                     $('#sslcmarks-error').show('fast');
@@ -757,7 +770,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="singleparentstatus">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Single Parent! Upload death certificate</label>
+                                                                <label class="add-course-label">If Single parent, Parent Upload death certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="singleparent" class="form-control1" id="singleparent" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -766,7 +779,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="orphanstatus1">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Orphan! Upload Mother Death certificate</label>
+                                                                <label class="add-course-label">If Orphan, Upload Mother Death certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="orphan1" class="form-control1" id="orphan1" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -775,7 +788,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="orphanstatus2">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Orphan! Upload Father death certificate</label>
+                                                                <label class="add-course-label">If Orphan, Upload Father death certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="orphan2" class="form-control1" id="orphan2" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -898,9 +911,18 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Fee payable this year</label>
+                                                                <label class="add-course-label">Fee paid this year</label>
                                                                 <input type="text" class="form-control" name="fee" placeholder="Total fee need to pay" id="fee">
                                                                 <div class="error-message text-danger" id="fee-error"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="add-course-label">College Admission fee receipt</label>
+                                                                <div class="relative-form" style="width:100%;">
+                                                                    <input type="file" name="fee_receipt" class="form-control1" id="fee_receipt" accept=".jpg, .jpeg, .png" max="500000">
+                                                                </div>
+                                                                <div class="error-message text-danger" id="fee_receipt-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="add-course-inner-header mt-5">
@@ -940,7 +962,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Have you done bachelors</label>
+                                                                <label class="add-course-label">Have you done Graduation</label>
                                                                 <select name="single_parent" id="bachelor_status" onchange="bachelors()" class="form-control select">
                                                                     <option value="" selected>Select</option>
                                                                     <option value="Yes">Yes</option>
@@ -951,14 +973,14 @@
                                                         </div>
                                                         <div class="col-md-6" id="bachelor_fields">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Bachelor degree Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <label class="add-course-label">Graduation Percentage (Convert CGPA/SGPA into Percentage)</label>
                                                                 <input type="text" name="ug_marks" class="form-control" id="ug_marks" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="ug_marks-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6" id="upload_marks_card">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Upload Bachelor's Marks Card</label>
+                                                                <label class="add-course-label">Upload Graduation Marks Card</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="ug_markscard" class="form-control1" id="bachelors-markscard" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -967,7 +989,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="masters">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Have you done masters</label>
+                                                                <label class="add-course-label">Have you done Post graduation</label>
                                                                 <select name="single_parent" id="masters_status" onchange="masters()" class="form-control select">
                                                                     <option value="" selected>Select</option>
                                                                     <option value="Yes">Yes</option>
@@ -978,14 +1000,14 @@
                                                         </div>
                                                         <div class="col-md-6" id="masters_fields">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Master degree Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <label class="add-course-label">Post Graduation Percentage (Convert CGPA/SGPA into Percentage)</label>
                                                                 <input type="text" name="pg_marks" class="form-control" id="pg_marks" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="pg_marks-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6" id="upload_masters_card">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Upload Master's markscard</label>
+                                                                <label class="add-course-label">Upload Post Graduation markscard</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="pg_markscard" class="form-control1" id="masters-markscard" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -1035,11 +1057,10 @@
                                                     <h4>Other Details</h4>
                                                 </div>
                                                 <div class="add-course-form">
-
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Are you obtaining any loan amount from the bank?</label>
+                                                                <label class="add-course-label">Are you obtaining any Education loan?</label>
                                                                 <select class="form-control select" name="loan_status" id="loan_status" onchange="loan()">
                                                                     <option value="" selected>Select</option>
                                                                     <option value="Yes">Yes</option>
@@ -1050,7 +1071,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group" id="loan">
-                                                                <label class="add-course-label">If yes then upload loan documents</label>
+                                                                <label class="add-course-label">If yes, Upload loan documents</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="loan_certificate" class="form-control1" id="loan_certificate" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -1135,7 +1156,7 @@
 
                                                                                                                         echo $formattedYears; // This will output something like "2023/24"
                                                                                                                         ?>
-                                                                    from <b>Rao Bahadhur Dharmapravartha Gubbi Thotadappa hostel.</b>
+                                                                    from <b>Rao Bahadhur Dharmapravartha Gubbi Thotadappa Charities.</b>
                                                                 </label>
                                                             </div>
                                                             <div class="col-md-6">

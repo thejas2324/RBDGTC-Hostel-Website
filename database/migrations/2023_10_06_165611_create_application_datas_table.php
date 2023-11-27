@@ -59,6 +59,7 @@ return new class extends Migration
             $table->string('application_id', 8)->unique();
             $table->string('applied_year')->nullable();
             $table->string('status')->default('Pending');
+            $table->string('status_modified_reason')->nullable();
             $table->timestamps();
         });
     }

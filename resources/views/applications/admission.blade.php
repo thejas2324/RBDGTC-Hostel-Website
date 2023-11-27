@@ -596,11 +596,10 @@
                         .next()
                         .addClass("progress-active");
 
-                    $('#achievements_certificate').show('fast')
-                    $('#achievements_certificate').focus();
+                    $('#achievement_status').show('fast')
+                    $('#achievement_status').focus();
                 }
             });
-
             //tab 3
             $('#othertab').click(function() {
                 let achievement_status = $('#achievement_status').val();

@@ -28,7 +28,7 @@
 
             // Send AJAX request to the server with selected filters
             $.ajax({
-                url: '/applications/filter', // Replace with your server endpoint
+                url: '/scholarship/filter', // Replace with your server endpoint
                 type: 'post', // or 'GET' depending on your server setup
                 data: data,
                 success: function(result) {
@@ -51,9 +51,17 @@
                                             <h6 class="mb-0">${result[i].dependent_status}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">${result[i].disability_status}</h6>
+                                            <h6 class="mb-0">${result[i].disability}</h6>
                                         </td>
-                                        
+                                        <td>
+                                            <h6 class="mb-0">${result[i].status}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0 text-center">
+                                                <a style="margin-right: 10px;" href="/scholarshipselectreject/${result[i].application_id}/Approved"><i class="fa-solid fa-circle-check fa-2xl" data-toggle="tooltip" data-placement="top" title="Approve" style="color: #6ac81e;"></i></a>
+                                                <a href="/scholarshipselectreject/${result[i].application_id}/Rejected"><i class="fa-solid fa-circle-xmark fa-2xl" data-toggle="tooltip" data-placement="top" title="Reject" style="color: #db1f1f;"></i></a>
+                                            </h6>
+                                        </td>
                                         <td class="text-center">
                                             <a href="/adminprintadmission/${result[i].s_id}" class="btn btn-success"><i class="fa-solid fa-print fa-lg"></i> Print</a>
                                         </td>
@@ -141,6 +149,7 @@
                                         <th>Degree Percentage</th>
                                         <th>Parental Status</th>
                                         <th>Disability</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                         <th class="text-end">Print</th>
                                     </tr>
@@ -166,7 +175,9 @@
                                         <td>
                                             <h6 class="mb-0">{{$dt->disability}}</h6>
                                         </td>
-
+                                        <td>
+                                            <h6 class="mb-0">{{$dt->status}}</h6>
+                                        </td>
                                         <td>
                                             <h6 class="mb-0 text-center">
                                                 <a style="margin-right: 10px;" href="/scholarshipselectreject/{{$dt->application_id}}/Approved"><i class="fa-solid fa-circle-check fa-2xl" data-toggle="tooltip" data-placement="top" title="Approve" style="color: #6ac81e;"></i></a>

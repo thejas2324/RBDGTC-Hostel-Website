@@ -51,7 +51,7 @@ class mainController extends Controller
 
     function gallery()
     {
-        $photos = gallery::paginate(1);
+        $photos = gallery::paginate(12);
         return view('gallery', ['photos' => $photos]);
     }
 

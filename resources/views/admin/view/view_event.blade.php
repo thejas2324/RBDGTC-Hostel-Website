@@ -22,9 +22,9 @@
         })
     }
     //edit event
-    function edit_event(id) {
+    function edit_application(id) {
         $.ajax({
-            url: '/eventget/' + id,
+            url: '/applicationget/' + id,
             type: 'get',
             success: function(res) {
                 console.log(res);
@@ -100,7 +100,7 @@
                                             <h6 class="mb-0">{{$ev->about_event}}</h6>
                                         </td>
                                         <td class="text-center">
-                                            <a href="#" onclick="edit_event('{{$ev->id}}')">
+                                            <a href="#" onclick="edit_application('{{$ev->id}}')">
                                                 <i class="fa-solid fa-pen-to-square fa-lg" style="color: #32912b;"></i>
                                             </a>
                                         </td>

@@ -391,7 +391,7 @@ class AdminController extends Controller
 
 
 
-    //filter application
+    //filter admission application
     public function applications_filter(Request $request)
     {
 
@@ -402,7 +402,6 @@ class AdminController extends Controller
             $rangeValues = explode('-', $selectedRange);
             $pucRanges[] = array_map('intval', $rangeValues);
         }
-        //return [$pucRanges];
 
         $degreeFilter = $request->input('degree', []); // Assuming 'pucFilter' is the name attribute in your HTML
         $degreeRanges = [];
@@ -488,6 +487,9 @@ class AdminController extends Controller
         return $filteredApplications;
     }
 
+
+
+
     //admission application select reject code
     function select_reject($application_id, $status)
     {
@@ -520,5 +522,125 @@ class AdminController extends Controller
         scholarship_appl_data::where('application_id', $application_id)->update($data);
         admin_activity::create($admin_activity);
         return redirect()->back();
+    }
+
+
+
+
+
+    //filter admission application
+    public function scholarship_filter(Request $request)
+    {
+
+        $pucFilter = $request->input('puc', []); // Assuming 'pucFilter' is the name attribute in your HTML
+        $pucRanges = [];
+
+        foreach ($pucFilter as $selectedRange) {
+            $rangeValues = explode('-', $selectedRange);
+            $pucRanges[] = array_map('intval', $rangeValues);
+        }
+
+        $degreeFilter = $request->input('degree', []); // Assuming 'pucFilter' is the name attribute in your HTML
+        $degreeRanges = [];
+
+        foreach ($degreeFilter as $selectedRange) {
+            $rangeValues = explode('-', $selectedRange);
+            $degreeRanges[] = array_map('intval', $rangeValues);
+        }
+
+        $dependentFilter = $request->input('dependent');
+        $disabilityFilter = $request->input('disability');
+
+        //return [$pucRanges, $degree, $dependentFilter, $disabilityFilter];
+
+        $currentyear = date('Y');
+        if ($dependentFilter == null && $disabilityFilter == null)
+            $filteredApplications = student_basedata::join('scholarship_appl_datas as sd', 'student_basedatas.id', '=', 'sd.s_id')
+                ->where(function ($query) use ($pucRanges) {
+                    foreach ($pucRanges as $range) {
+                        $query->orWhereBetween('student_basedatas.puc_diploma_marks', $range);
+                    }
+                })
+
+                ->where(function ($query) use ($degreeRanges) {
+                    foreach ($degreeRanges as $range) {
+                        $query->orWhereBetween('sd.ug_marks', $range);
+                    }
+                })
+
+                ->where('sd.applied_year', $currentyear)
+                ->get();
+
+        else if ($dependentFilter != null && $disabilityFilter == null) {
+            $filteredApplications = student_basedata::join('scholarship_appl_datas as sd', 'student_basedatas.id', '=', 'sd.s_id')
+                ->where(function ($query) use ($pucRanges) {
+                    foreach ($pucRanges as $range) {
+                        $query->orWhereBetween('student_basedatas.puc_diploma_marks', $range);
+                    }
+                })
+
+                ->where(function ($query) use ($degreeRanges) {
+                    foreach ($degreeRanges as $range) {
+                        $query->orWhereBetween('sd.ug_marks', $range);
+                    }
+                })
+
+                ->whereIn('sd.dependent_status', $dependentFilter)
+                ->where('sd.applied_year', $currentyear)
+                ->get();
+        } else if ($dependentFilter == null && $disabilityFilter != null) {
+            $filteredApplications = student_basedata::join('scholarship_appl_datas as sd', 'student_basedatas.id', '=', 'sd.s_id')
+                ->where(function ($query) use ($pucRanges) {
+                    foreach ($pucRanges as $range) {
+                        $query->orWhereBetween('student_basedatas.puc_diploma_marks', $range);
+                    }
+                })
+
+                ->where(function ($query) use ($degreeRanges) {
+                    foreach ($degreeRanges as $range) {
+                        $query->orWhereBetween('sd.ug_marks', $range);
+                    }
+                })
+                ->whereIn('sd.disability_status', $disabilityFilter)
+                ->where('sd.applied_year', $currentyear)
+                ->get();
+        } else {
+            $filteredApplications = student_basedata::join('scholarship_appl_datas as sd', 'student_basedatas.id', '=', 'sd.s_id')
+                ->where(function ($query) use ($pucRanges) {
+                    foreach ($pucRanges as $range) {
+                        $query->orWhereBetween('student_basedatas.puc_diploma_marks', $range);
+                    }
+                })
+                ->where(function ($query) use ($degreeRanges) {
+                    foreach ($degreeRanges as $range) {
+                        $query->orWhereBetween('sd.ug_marks', $range);
+                    }
+                })
+                ->whereIn('sd.disability_status', $disabilityFilter)
+                ->whereIn('sd.dependent_status', $dependentFilter)
+                ->where('sd.applied_year', $currentyear)
+                ->get();
+        }
+        return $filteredApplications;
+    }
+
+
+    //admission application review code
+    function application_get($id)
+    {
+        $application = student_basedata::join('application_datas as ad', 'student_basedatas.id', '=', 'ad.s_id')
+            ->where('application_id', $id)->get();
+        return $application;
+    }
+
+    //admission status modified update code
+    function admission_update(Request $request)
+    {
+        $data = [
+            "status" => $request->action,
+            "status_modified_reason" => $request->modified_reason
+        ];
+        application_data::where('application_id', $request->application_id)->update($data);
+        return redirect('/viewapplication');
     }
 }

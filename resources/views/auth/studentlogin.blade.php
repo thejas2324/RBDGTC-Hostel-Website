@@ -10,8 +10,8 @@
     <title>Student login</title>
 
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+    <link href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
     <link href="{{ asset('adminassets/css/style.css')}}" rel="stylesheet">
 
@@ -25,7 +25,6 @@
                 <div class="text-center mb-lg-4 mb-2 pt-5 logo">
                     <img src="assets/img/thotadappa/logo4.png" alt="logo" style="width: 200px;">
                 </div>
-                <h3 class="mb-2 text-white">Welcome back</h3>
             </div>
 
         </div>
@@ -70,14 +69,13 @@
         </div>
     </div>
 
-
     <!--**********************************
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="vendor/global/global.min.js"></script>
-    <script src="js/custom.min.js"></script>
-    <script src="js/dlabnav-init.js"></script>
+    <script src="/assets/vendor/global/global.min.js"></script>
+    <script src="/assets/js/custom.min.js"></script>
+    <script src="/assets/js/dlabnav-init.js"></script>
 
 </body>
 

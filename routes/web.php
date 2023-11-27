@@ -76,7 +76,9 @@ Route::get('/admin_logout', [loginController::class, 'admin_logout']);
 Route::get('adminforgetpass', [loginController::class, 'admin_forgetpassword']);
 Route::post('/adminforgetpassword', [loginController::class, 'admin_forget_password']);
 Route::post('/adminresetpassword', [loginController::class, 'admin_reset_password']);
-
+//edit application link
+Route::get('/applicationget/{id}', [AdminController::class, 'application_get']);
+Route::post('/admission/update', [AdminController::class, 'admission_update']);
 
 //admin main
 //add links
@@ -162,6 +164,7 @@ Route::get('/adminprintscholarship/{id}', [applicationController::class, 'admin_
 
 //table filter
 Route::post('/applications/filter', [AdminController::class, 'applications_filter']);
+Route::post('/scholarship/filter', [AdminController::class, 'scholarship_filter']);
 
 
 //select reject activity

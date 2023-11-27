@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('current_course')->nullable();
             $table->string('college_name')->nullable();
             $table->string('college_fee_paid')->nullable();
+            $table->string('fee_receipt')->nullable();
             $table->string('ug_marks')->nullable();
             $table->string('ug_markscard')->nullable();
             $table->string('pg_marks')->nullable();

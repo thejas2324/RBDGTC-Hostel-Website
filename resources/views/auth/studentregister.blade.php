@@ -10,8 +10,8 @@
     <title>Student Register</title>
 
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+    <link href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
     <link href="{{ asset('adminassets/css/style.css')}}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -85,7 +85,7 @@
         <div class="login-aside text-center  d-flex flex-column flex-row-auto">
             <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
                 <div class="text-center mb-lg-4 mb-2 pt-5 logo">
-                    <img src="assets/img/thotadappa/logo4.png" alt="logo" style="width: 200px;">
+                    <img src="/assets/img/thotadappa/logo4.png" alt="logo" style="width: 200px;">
                 </div>
 
                 <!-- <p class="mb-4">To download application PDF</p> -->
@@ -138,9 +138,9 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="vendor/global/global.min.js"></script>
-    <script src="js/custom.min.js"></script>
-    <script src="js/dlabnav-init.js"></script>
+    <script src="/assets/vendor/global/global.min.js"></script>
+    <script src="/assets/js/custom.min.js"></script>
+    <script src="/assets/js/dlabnav-init.js"></script>
 
 </body>
 

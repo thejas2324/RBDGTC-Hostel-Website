@@ -57,9 +57,8 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="page-title flex-wrap">
-                            <h2>Our hostels details</h2>
+                            <h2>Our hostels</h2>
                             <div>
-
                                 <a href="/addhostel" type="button" class="btn btn-primary">
                                     + New Hostel
                                 </a>
