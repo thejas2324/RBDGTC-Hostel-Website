@@ -337,6 +337,7 @@
             $('#personaltab').click(function() {
                 //tab 1
                 let dob = $('#dob').val();
+                let gender = $('#gender').val();
                 let aadhar_card = $('#aadhar_card').val();
                 let applicant_mobile = $('#applicant_mobile').val();
                 let applicant_alter_mobile = $('#applicant_alter_mobile').val();
@@ -360,11 +361,14 @@
                 let applicant_signature = $('#applicant-signature').val();
                 let caste_income_certificate = $('#caste-income-certificate').val();
 
-
                 if (dob == "") {
                     $('#dob-error').html('Please enter the Date of Birth');
                     $('#dob-error').show('fast');
                     $('#dob').focus();
+                } else if (gender == "") {
+                    $('#gender-error').html('Please select Gender')
+                    $('#gender-error').show('fast');
+                    $('#gender').focus();
                 } else if (aadhar_card == "") {
                     $('#aadhar_card-error').html('Please Upload Aadhar Card')
                     $('#aadhar_card-error').show('fast');
@@ -751,6 +755,17 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
+                                                                <label class="add-course-label">Gender</label>
+                                                                <select name="gender" class="form-control select" id="gender">
+                                                                    <option value="" selected>Select</option>
+                                                                    <option value="Female">Female</option>
+                                                                    <option value="Male">Male</option>
+                                                                </select>
+                                                                <div class="error-message text-danger" id="gender-error"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
                                                                 <label class="add-course-label">Aadhar Number</label>
                                                                 <input type="text" name="aadhar_number" class="form-control" value="{{$user->aadhar_number}}" placeholder="Student Name" readonly required>
                                                             </div>
@@ -826,7 +841,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="singleparentstatus">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Single Parent! Upload death certificate</label>
+                                                                <label class="add-course-label">If Single Parent, Upload death certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="singleparent" class="form-control1" id="singleparent" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -835,7 +850,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="orphanstatus1">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Orphan! Upload Mother Death certificate</label>
+                                                                <label class="add-course-label">If Orphan, Upload Mother Death certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="orphan1" class="form-control1" id="orphan1" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -844,7 +859,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="orphanstatus2">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Orphan! Upload Father death certificate</label>
+                                                                <label class="add-course-label">If Orphan, Upload Father death certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="orphan2" class="form-control1" id="orphan2" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -920,7 +935,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="disability">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Yes! Upload disability certificate</label>
+                                                                <label class="add-course-label">If Yes, Upload disability certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="disability_certificate" class="form-control1" id="disability_certificate" accept=" .jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -940,7 +955,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="parentdisability">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If Yes! Upload parent disability certificate</label>
+                                                                <label class="add-course-label">If Yes, Upload parent disability certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="parentdisability_certificate" class="form-control1" id="parentdisability_certificate" accept=" .jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -1077,7 +1092,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group" id="rural">
-                                                                <label class="add-course-label">If yes! Upload attested SSLC certificate</label>
+                                                                <label class="add-course-label">If yes, Upload rural certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="rural_certificate" class="form-control1" id="rural_certificate" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -1085,11 +1100,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="add-course-inner-header mt-5">
-                                                            <h4>Course appling for</h4>
+                                                            <h4>Course applying for</h4>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Type of Entrance Exam</label>
+                                                                <label class="add-course-label">Admission Type</label>
                                                                 <select name="cet_type" id="cet_type" class="form-control select">
                                                                     <option value="" selected>Select</option>
                                                                     <option value="Other">Other</option>
@@ -1105,7 +1120,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Present year course</label>
+                                                                <label class="add-course-label">Course name</label>
                                                                 <input type="text" name="present_course" class="form-control" id="present_course" placeholder="Ex: Bachelor of Engineering">
                                                                 <div class="error-message text-danger" id="present_course-error"></div>
                                                             </div>
@@ -1172,7 +1187,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="achievement_certificate">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">If yes! Upload achievement document</label>
+                                                                <label class="add-course-label">If yes, Upload achievement document</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="achievements_certificate" class="form-control1" id="achievements_certificate" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>

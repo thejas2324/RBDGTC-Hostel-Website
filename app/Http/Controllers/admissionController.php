@@ -20,6 +20,7 @@ class admissionController extends Controller
         $studentbasedata = [
             "applicant_name" => $request->applicant_name,
             "dob" => $request->dob,
+            "gender" => $request->gender,
             "aadhar_number" => $request->aadhar_number,
             "mobile_number" => $request->applicant_mobile,
             "alternative_mobile" => $request->applicant_alter_mobile,

@@ -79,6 +79,9 @@ Route::post('/adminresetpassword', [loginController::class, 'admin_reset_passwor
 //edit application link
 Route::get('/applicationget/{id}', [AdminController::class, 'application_get']);
 Route::post('/admission/update', [AdminController::class, 'admission_update']);
+//edit application link
+Route::get('/scholarshipget/{id}', [AdminController::class, 'scholarship_get']);
+Route::post('/scholarship/update', [AdminController::class, 'scholarship_update']);
 
 //admin main
 //add links

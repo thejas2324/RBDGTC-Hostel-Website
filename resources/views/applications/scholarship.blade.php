@@ -871,7 +871,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group" id="disability">
-                                                                <label class="add-course-label">If yes! then upload disability certificate</label>
+                                                                <label class="add-course-label">If yes, then upload disability certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="disability_certificate" class="form-control1" id="disability_certificate" accept=" .jpg, .jpeg, .png" max="500000">
                                                                 </div>
@@ -1036,7 +1036,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group" id="rural">
-                                                                <label class="add-course-label">If yes! then upload attested SSLC certificate</label>
+                                                                <label class="add-course-label">If yes, then upload attested SSLC certificate</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="rural_certificate" class="form-control1" id="rural_certificate" accept=".jpg, .jpeg, .png" max="500000">
                                                                 </div>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('applicant_name')->nullable();
             $table->date('dob')->nullable();
+            $table->string('gender')->nullable();
             $table->string('applicant_image')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('alternative_mobile')->nullable();
@@ -32,7 +33,7 @@ return new class extends Migration
             $table->string('puc_diploma_markscard')->nullable();
             $table->string('rural_status')->nullable();
             $table->string('rural_certificate')->nullable();
-            
+
             $table->string('studied_in_rbdgtc')->nullable();
             $table->string('password');
             $table->timestamps();

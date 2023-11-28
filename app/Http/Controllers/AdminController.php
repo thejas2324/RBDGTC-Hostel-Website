@@ -105,7 +105,7 @@ class AdminController extends Controller
         })
             ->select('student_basedatas.*', 'ad.*')
             ->where('ad.applied_year', $currentyear) // Sort by 'created_at' in descending order
-
+            ->where('ad.status', 'Pending')
             ->get();
 
         return view('admin.view.view_add_applications', ['data' => $data]);
@@ -114,7 +114,7 @@ class AdminController extends Controller
     function selected_applications()
     {
         $currentyear = date('Y');
-        $data = student_basedata::join('application_datas as ad', function ($join) {
+        $selectedapplications = student_basedata::join('application_datas as ad', function ($join) {
             $join->on('student_basedatas.id', '=', 'ad.s_id');
         })
             ->select('student_basedatas.*', 'ad.*')
@@ -122,13 +122,13 @@ class AdminController extends Controller
             ->where('ad.status', 'Approved')
             ->get();
 
-        return view('admin.view.view_selected_applications', ['data' => $data]);
+        return view('admin.view.view_selected_applications', ['selectedapplications' => $selectedapplications]);
     }
 
     function rejected_applications()
     {
         $currentyear = date('Y');
-        $data = student_basedata::join('application_datas as ad', function ($join) {
+        $rejectedapplications = student_basedata::join('application_datas as ad', function ($join) {
             $join->on('student_basedatas.id', '=', 'ad.s_id');
         })
             ->select('student_basedatas.*', 'ad.*')
@@ -136,7 +136,7 @@ class AdminController extends Controller
             ->where('ad.status', 'Rejected')
             ->get();
 
-        return view('admin.view.view_selected_applications', ['data' => $data]);
+        return view('admin.view.view_rejected_applications', ['rejectedapplications' => $rejectedapplications]);
     }
 
     function view_scholarship()
@@ -601,7 +601,7 @@ class AdminController extends Controller
                         $query->orWhereBetween('sd.ug_marks', $range);
                     }
                 })
-                ->whereIn('sd.disability_status', $disabilityFilter)
+                ->whereIn('sd.disability', $disabilityFilter)
                 ->where('sd.applied_year', $currentyear)
                 ->get();
         } else {
@@ -616,7 +616,7 @@ class AdminController extends Controller
                         $query->orWhereBetween('sd.ug_marks', $range);
                     }
                 })
-                ->whereIn('sd.disability_status', $disabilityFilter)
+                ->whereIn('sd.disability', $disabilityFilter)
                 ->whereIn('sd.dependent_status', $dependentFilter)
                 ->where('sd.applied_year', $currentyear)
                 ->get();
@@ -636,11 +636,46 @@ class AdminController extends Controller
     //admission status modified update code
     function admission_update(Request $request)
     {
+        $activityTime = Carbon::now();
+        $admin_activity = [
+            "admin_id" => session('admin_id'),
+            "activity_time" => $activityTime,
+            "activity" => $request->application_id . " Admission application " . $request->action . " by " . session('admin_name'),
+        ];
         $data = [
             "status" => $request->action,
-            "status_modified_reason" => $request->modified_reason
+            "status_modified_reason" => $request->modified_reason,
+            "action_taken_by" => session('admin_name')
         ];
         application_data::where('application_id', $request->application_id)->update($data);
-        return redirect('/viewapplication');
+        admin_activity::create($admin_activity);
+        return redirect()->back();
+    }
+
+    //admission application review code
+    function scholarship_get($id)
+    {
+        $application = student_basedata::join('scholarship_appl_datas as sad', 'student_basedatas.id', '=', 'sad.s_id')
+            ->where('application_id', $id)->get();
+        return $application;
+    }
+
+    //admission status modified update code
+    function scholarship_update(Request $request)
+    {
+        $activityTime = Carbon::now();
+        $admin_activity = [
+            "admin_id" => session('admin_id'),
+            "activity_time" => $activityTime,
+            "activity" => $request->application_id . " Admission application " . $request->action . " by " . session('admin_name'),
+        ];
+        $data = [
+            "status" => $request->action,
+            "status_modified_reason" => $request->modified_reason,
+            "action_taken_by" => session('admin_name')
+        ];
+        application_data::where('application_id', $request->application_id)->update($data);
+        admin_activity::create($admin_activity);
+        return redirect()->back();
     }
 }

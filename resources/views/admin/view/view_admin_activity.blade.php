@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header flex-wrap d-flex justify-content-between">
                         <div>
-                            <h3 class="card-title">Application Events</h3>
+                            <h3 class="card-title">Admin Activity</h3>
                         </div>
 
                     </div>

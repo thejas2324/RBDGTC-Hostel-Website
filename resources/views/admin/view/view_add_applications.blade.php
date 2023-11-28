@@ -10,6 +10,10 @@
         margin-bottom: 20px;
     }
 
+    .color {
+        color: black;
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -74,6 +78,7 @@
         text-align: center;
     }
 </style>
+
 <script>
     function degreefilter() {
         if ($('#filtercolumn').val() == "degree") {
@@ -116,6 +121,9 @@
                                             <h6 class="mb-0">${result[i].applicant_name}</h6>
                                         </td>
                                         <td>
+                                            <h6 class="mb-0">${result[i].gender}</h6>
+                                        </td>
+                                        <td>
                                             <h6 class="mb-0">${result[i].puc_diploma_marks}</h6>
                                         </td>
                                         <td>
@@ -131,7 +139,7 @@
                                             <h6 class="mb-0">${result[i].status}</h6>
                                         </td>
                                         <td class="text-center">
-                                            <a href="#" onclick="edit_application('${$result[i].application_id}')">
+                                            <a href="#" onclick="edit_application('${result[i].application_id}')">
                                                 <i class="fa-solid fa-pen-to-square fa-lg" style="color: #32912b;"></i>
                                             </a>
                                         </td>
@@ -172,6 +180,7 @@
                 $('#application_id1').val(res[0].application_id);
                 $('#applicant_name').html(res[0].applicant_name);
                 $('#dob').html(res[0].dob);
+                $('#gender').html(res[0].gender);
                 $('#aadhar_number').html(res[0].aadhar_number);
                 $('#mobile').html(res[0].mobile_number);
                 $('#parent_mobile').html(res[0].alternative_mobile);
@@ -235,7 +244,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="page-title flex-wrap">
-                            <h2 class="mt-1">Admission Applications</h2>
+                            <h2 class="mt-1">Admission Applications ({{count($data)}})</h2>
                         </div>
                     </div>
                     <!-- filter -->
@@ -294,6 +303,7 @@
                                         <!-- <th>image</th> -->
                                         <th>Application ID</th>
                                         <th>Applicant Name</th>
+                                        <th>Gender</th>
                                         <th>PUC Percentage</th>
                                         <th>Degree Percentage</th>
                                         <th>Parental Status</th>
@@ -316,6 +326,9 @@
                                         <td><span class="text-primary font-w600">{{$dt->application_id}}</span></td>
                                         <td>
                                             <h6 class="mb-0">{{$dt->applicant_name}}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{$dt->gender}}</h6>
                                         </td>
                                         <td>
                                             <h6 class="mb-0">{{$dt->puc_diploma_marks}}</h6>
@@ -403,18 +416,22 @@
                                 </td>
                             </tr>
                         </table>
-                        <table border="1" class="mt-3">
+                        <table border="1" class="mt-3 color">
                             <tr>
                                 <td>Application ID</td>
                                 <td style="color: red;" id="application_id"></td>
                             </tr>
                             <tr>
                                 <td>Applicant's Name</td>
-                                <td style="color: black;" id="applicant_name"></td>
+                                <td id="applicant_name"></td>
                             </tr>
                             <tr>
                                 <td>Date of Birth</td>
                                 <td id="dob"></td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td id="gender"></td>
                             </tr>
                             <tr>
                                 <td>Aadhar Number</td>
@@ -523,7 +540,7 @@
                                 <td id="accommodation_mode"><br> </td>
                             </tr>
                         </table>
-                        <div class="mt-5">
+                        <div class="mt-5 color">
                             <h2 class="text-center"> Affidavit of parents</h2>
                             <p class="tab-indent" start="6">I, <b id="father_name1"></b> Confirm that I have thoroughly reviewed the application for my Son/Daughter Mr/Ms &nbsp;<b id="applicant_name1"></b>&nbsp;.
                                 The provided Documents are accurate. I am aware that any false information may lead to rejection/termination of hostel facilities provided.</p>
@@ -615,13 +632,13 @@
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="mb-3">
-                                    <label class="form-label text-primary">Application modified reason<span class="required">*</span></label>
-                                    <input type="text" name="modified_reason" class="form-control" id="" placeholder="">
+                                    <label class="form-label text-primary">Remark<span class="required">*</span></label>
+                                    <input type="text" name="modified_reason" class="form-control" id="" placeholder="" required>
                                 </div>
                             </div>
                             <input type="text" id="application_id1" name="application_id" hidden>
+                            <input type="text" value="{{session('admin_name')}}" hidden>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">
