@@ -224,6 +224,7 @@
                 $('#aadhar_card').attr('src', '/admissions/applicant_aadhar/' + res[0].aadhar_card);
                 $('#income').attr('src', '/admissions/applicant_income/' + res[0].income_certificate);
                 $('#sslc_markscard').attr('src', '/admissions/sslc_markscards/' + res[0].sslc_markscard);
+                $('#rural_cer').attr('src', '/admissions/rural_certificate/' + res[0].rural_certificate);
                 $('#puc_markscard').attr('src', '/admissions/puc_dip_markscards/' + res[0].puc_diploma_markscard);
                 $('#ug_markscard').attr('src', '/admissions/applicant_ug_markscard/' + res[0].ug_markscard);
                 $('#pg_markscard').attr('src', '/admissions/applicant_pg_markscard/' + res[0].pg_markscard);
@@ -231,10 +232,9 @@
                 $('#mother_death').attr('src', '/admissions/motherdeath_certificate/' + res[0].mother_death_cer);
                 $('#father_death').attr('src', '/admissions/fatherdeath_certificate/' + res[0].father_death_cer);
                 $('#disability_cer').attr('src', '/admissions/applicant_disability_certificate/' + res[0].disability_certificate);
-                $('#parent_disability_cer').attr('src', '/admissions/parent_disability_certificate/' + res[0].parent_disability_certificate);
                 $('#character_cer').attr('src', '/admissions/applicant_character_cer/' + res[0].character_certificate);
-                $('#fee_receipt').attr('src', '/admissions/applicant_fee_receipt/' + res[0].clg_admission_receipt);
-                $('#achievement_cer').attr('src', '/admissions/achievements_certificates/' + res[0].achievement_cer);
+                $('#fee_receipt').attr('src', '/admissions/applicant_fee_receipt/' + res[0].fee_receipt);
+                $('#loan_document').attr('src', '/admissions/applicant_loan_document/' + res[0].loan_document);
 
 
                 $('#applicant_name1').html(res[0].applicant_name);
@@ -544,7 +544,6 @@
                                 </td>
                             </tr>
                         </table>
-
                         <div class="mt-5">
                             <h2 class="text-center"> Affidavit of parents</h2>
                             <p class="tab-indent color" start="6">My son/Daughter, <b id="applicant_name1"></b> the student studing <b id="course"></b>. In &nbsp;<b id="college_name1"></b>.
@@ -583,6 +582,11 @@
                         </div>
                         <hr>
                         <div>
+                            <label>Rural Certificate</label> <br>
+                            <img src="" id="rural_cer" width="100%" height="90%" alt='Rural certificate not Uploaded'>
+                        </div>
+                        <hr>
+                        <div>
                             <label>Single Parent Certificate</label> <br>
                             <img src="" id="single_parent" width="100%" height="90%" alt='Single Parent Certificate not Uploaded'>
                         </div>
@@ -603,27 +607,21 @@
                         </div>
                         <hr>
                         <div>
-                            <label>Parent Disability Certificate</label> <br>
-                            <img src="" id="parent_disability_cer" width="100%" height="90%" alt='Parent disability Certificate not Uploaded'>
-                        </div>
-                        <hr>
-                        <div>
                             <label>Character Certificate</label> <br>
                             <img src="" id="character_cer" width="100%" height="90%" alt='Character Certificate not Uploaded'>
                         </div>
                         <hr>
                         <div>
-                            <label>College Admission Fee Receipt</label> <br>
+                            <label>College Fee Receipt</label> <br>
                             <img src="" id="fee_receipt" width="100%" height="90%" alt='College fee receipt not Uploaded'>
                         </div>
                         <hr>
                         <div>
-                            <label>Achievement Certificate</label> <br>
-                            <img src="" id="achievement_cer" width="100%" height="90%" alt='Achievement Certificate not Uploaded'>
+                            <label>Eduation loan document</label> <br>
+                            <img src="" id="loan_document" width="100%" height="90%" alt='Education loan document not Uploaded'>
                         </div>
                         <hr>
                         <h3 class="mt-2" id="status"></h3>
-
                         <div class="row">
                             <div class="col-md-6 mt-3">
                                 <div class="mb-3">

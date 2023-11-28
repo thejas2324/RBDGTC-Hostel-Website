@@ -214,6 +214,7 @@
                 $('#aadhar_card').attr('src', '/admissions/applicant_aadhar/' + res[0].aadhar_card);
                 $('#income').attr('src', '/admissions/applicant_income/' + res[0].income_certificate);
                 $('#sslc_markscard').attr('src', '/admissions/sslc_markscards/' + res[0].sslc_markscard);
+                $('#rural_cer').attr('src', '/admissions/rural_certificate/' + res[0].rural_certificate);
                 $('#puc_markscard').attr('src', '/admissions/puc_dip_markscards/' + res[0].puc_diploma_markscard);
                 $('#ug_markscard').attr('src', '/admissions/applicant_ug_markscard/' + res[0].ug_markscard);
                 $('#pg_markscard').attr('src', '/admissions/applicant_pg_markscard/' + res[0].pg_markscard);
@@ -575,6 +576,11 @@
                         <div>
                             <label>Post Graduation Marks card</label> <br>
                             <img src="" id="pg_markscard" width="100%" height="90%" alt='Post Graduation marks Card not Uploaded'>
+                        </div>
+                        <hr>
+                        <div>
+                            <label>Rural Certificate</label> <br>
+                            <img src="" id="rural_cer" width="100%" height="90%" alt='Rural certificate not Uploaded'>
                         </div>
                         <hr>
                         <div>

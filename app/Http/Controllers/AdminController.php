@@ -644,7 +644,7 @@ class AdminController extends Controller
         ];
         $data = [
             "status" => $request->action,
-            "status_modified_reason" => $request->modified_reason,
+            "remark" => $request->modified_reason,
             "action_taken_by" => session('admin_name')
         ];
         application_data::where('application_id', $request->application_id)->update($data);
@@ -671,10 +671,10 @@ class AdminController extends Controller
         ];
         $data = [
             "status" => $request->action,
-            "status_modified_reason" => $request->modified_reason,
+            "remark" => $request->modified_reason,
             "action_taken_by" => session('admin_name')
         ];
-        application_data::where('application_id', $request->application_id)->update($data);
+        scholarship_appl_data::where('application_id', $request->application_id)->update($data);
         admin_activity::create($admin_activity);
         return redirect()->back();
     }

@@ -140,6 +140,7 @@
                                         <th>Parental Status</th>
                                         <th>Disability</th>
                                         <th>Status</th>
+                                        <th>Rejected By</th>
                                         <th class="text-end">Print</th>
                                     </tr>
                                 </thead>
@@ -169,6 +170,9 @@
                                             <h6 class="mb-0">
                                                 {{$dt->status}}
                                             </h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{$dt->action_taken_by}}</h6>
                                         </td>
                                         <td class="text-center">
                                             <a href="/adminprintscholarship/{{$dt->s_id}}" class="btn btn-success"><i class="fa-solid fa-print fa-lg"></i> Print</a>
