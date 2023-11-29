@@ -78,10 +78,10 @@ Route::post('/adminforgetpassword', [loginController::class, 'admin_forget_passw
 Route::post('/adminresetpassword', [loginController::class, 'admin_reset_password']);
 //edit application link
 Route::get('/applicationget/{id}', [AdminController::class, 'application_get']);
-Route::post('/admission/update', [AdminController::class, 'admission_update']);
+Route::get('/admission/update/{application_id}/{status}/{remark}', [AdminController::class, 'admission_update']);
 //edit application link
 Route::get('/scholarshipget/{id}', [AdminController::class, 'scholarship_get']);
-Route::post('/scholarship/update', [AdminController::class, 'scholarship_update']);
+Route::get('/scholarship/update/{application_id}/{status}/{remark}', [AdminController::class, 'scholarship_update']);
 
 //admin main
 //add links
@@ -166,9 +166,15 @@ Route::get('/adminprintscholarship/{id}', [applicationController::class, 'admin_
 
 
 //table filter
+//admission
 Route::post('/applications/filter', [AdminController::class, 'applications_filter']);
-Route::post('/scholarship/filter', [AdminController::class, 'scholarship_filter']);
+Route::post('/selectedapplications/filter', [AdminController::class, 'selected_applications_filter']);
+Route::post('/rejectedapplications/filter', [AdminController::class, 'rejected_applications_filter']);
 
+//scholarship
+Route::post('/scholarship/filter', [AdminController::class, 'scholarship_filter']);
+Route::post('/selectedscholarship/filter', [AdminController::class, 'selected_scholarship_filter']);
+Route::post('/rejectedscholarship/filter', [AdminController::class, 'rejected_scholarship_filter']);
 
 //select reject activity
 Route::get('/selectreject/{application_id}/{status}', [AdminController::class, 'select_reject']);

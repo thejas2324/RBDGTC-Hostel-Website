@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('event_tables', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('hostels')->nullable();
             $table->string('open_date')->nullable();
             $table->string('close_date')->nullable();
             $table->string('status')->default('Pending');

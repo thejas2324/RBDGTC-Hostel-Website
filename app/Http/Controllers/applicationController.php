@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\admin_activity;
 use App\Models\application_data;
 use App\Models\event_table;
+use App\Models\hostel;
 use App\Models\scholarship_appl_data;
 use App\Models\scholarship_basedata;
 use App\Models\student_basedata;
@@ -22,8 +23,15 @@ class applicationController extends Controller
 {
     function admission()
     {
+        $currentYear = date('Y');
+        $admissionevent = event_table::where('title', 'Admission Application')->where('application_year', $currentYear)->orderBy('created_at', 'desc')->get();
+
+        $admissionhostels_ids = explode(',', $admissionevent[0]->hostels);
+        $admission_hostels = hostel::whereIn('id', $admissionhostels_ids)->get();
+
         $user = student_basedata::where('aadhar_number', session('aadhar_number'))->first();
-        return view('applications.admission', ['user' => $user]);
+        $result = ['user' => $user, 'admission_hostels' => $admission_hostels];
+        return view('applications.admission', $result);
     }
 
     function scholarship()
@@ -36,8 +44,9 @@ class applicationController extends Controller
     {
         $currentYear = date('Y');
 
-        $admissionevent = event_table::where('title', 'Admission Application')->where('application_year', $currentYear)->get();
-        $scholarshipevent = event_table::where('title', 'Scholarship Application')->where('application_year', $currentYear)->get();
+        $admissionevent = event_table::where('title', 'Admission Application')->where('application_year', $currentYear)->orderBy('created_at', 'desc')->get();
+
+        $scholarshipevent = event_table::where('title', 'Scholarship Application')->where('application_year', $currentYear)->orderBy('created_at', 'desc')->get();
 
         $hasEmptyAppliedYear = application_data::where('s_id', session('id'))
             ->where('applied_year', $currentYear)
@@ -48,13 +57,21 @@ class applicationController extends Controller
             ->exists();
 
         $data = student_basedata::where('aadhar_number', session('aadhar_number'))->get();
-        return view('applications.student_page', [
+
+        $result = [
             'data' => $data,
             'hasEmptyAppliedYear' => $hasEmptyAppliedYear,
             'scholarship' => $scholarship,
             'admissionevent' => $admissionevent,
             'scholarshipevent' => $scholarshipevent
-        ]);
+        ];
+
+        if (count($scholarshipevent) > 0) {
+            $cholarshiphostels_ids = explode(',', $scholarshipevent[0]->hostels);
+            $scholarship_hostels = hostel::whereIn('id', $cholarshiphostels_ids)->get();
+            $result['scholarship_hostels'] = $scholarship_hostels;
+        }
+        return view('applications.student_page', $result);
     }
 
 
@@ -182,7 +199,8 @@ class applicationController extends Controller
     //application open close
     function new_event()
     {
-        return view('applications.new_event');
+        $hostels = hostel::all();
+        return view('applications.new_event', ['hostels' => $hostels]);
     }
 
     function newevent_check(Request $request)
@@ -196,9 +214,12 @@ class applicationController extends Controller
         $data = [
             "title" => $request->title,
             "application_year" => $request->academicyear,
+            "hostels" => implode(',', $request->input('hostels')),
             "open_date" => $request->opendate,
             "close_date" => $request->closedate,
         ];
+
+
         event_table::create($data);
         admin_activity::create($admin_activity);
         return redirect()->back()->with('success', 'Event added Succesfully');

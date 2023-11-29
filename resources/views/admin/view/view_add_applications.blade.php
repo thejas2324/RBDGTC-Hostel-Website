@@ -88,6 +88,30 @@
         }
     }
     $(document).ready(function() {
+
+        $('#submit').click(function() {
+            var action = $('#action').val();
+            var remark = $('#remark').val();
+            var app_id = $('#application_id1').val();
+
+            $.ajax({
+                url: "/admission/update/" + app_id + "/" + action + "/" + remark,
+                type: 'get',
+                success: function(result) {
+                    console.log(result);
+                    $('#eventedit').modal('hide');
+                    $('#filterButton').click();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            });
+        });
+
         $('#filter').hide();
 
         $('#filterButton').on('click', function() {
@@ -629,7 +653,7 @@
                             <div class="col-md-6 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Action<span class="required">*</span></label>
-                                    <select value="" name="action" required class="default-select form-control wide">
+                                    <select value="" name="action" id="action" required class="default-select form-control wide">
                                         <option value="" selected disabled>Select</option>
                                         <option value="Approved">Select</option>
                                         <option value="Rejected">Reject</option>
@@ -639,7 +663,7 @@
                             <div class="col-md-12 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Remark<span class="required">*</span></label>
-                                    <input type="text" name="modified_reason" class="form-control" id="" placeholder="" required>
+                                    <input type="text" name="modified_reason" class="form-control" id="remark" placeholder="" required>
                                 </div>
                             </div>
                             <input type="text" id="application_id1" name="application_id" hidden>
@@ -649,7 +673,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Made Changes</button>
+                    <button type="button" class="btn btn-primary" id="submit">Save Changes</button>
                 </div>
             </form>
         </div>

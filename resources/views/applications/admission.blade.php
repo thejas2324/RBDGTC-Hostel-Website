@@ -735,6 +735,26 @@
                                         <fieldset id="first">
                                             <div class="add-course-info">
                                                 <div class="add-course-inner-header">
+                                                    <h4>Hostel Info</h4>
+                                                </div>
+                                                <div class="add-course-form">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group">
+                                                                <label class="add-course-label">Select Hostel</label>
+                                                                <select name="hostel" class="form-control select" id="hostel">
+                                                                    <option value="" selected>Select</option>
+                                                                    @foreach($admission_hostels as $ah)
+                                                                    <option value="{{$ah->id}}">{{$ah->hostel_name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                <div class="error-message text-danger" id="gender-error"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="add-course-inner-header mt-3">
                                                     <h4>Personal Information</h4>
                                                 </div>
                                                 <div class="add-course-form">
@@ -1022,7 +1042,7 @@
                                                         </div>
                                                         <div class="col-md-6" id="bachelor_fields">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Bachelor degree Percentage (Convert CGPA/SGPA into Percentage)</label>
+                                                                <label class="add-course-label">Graduation Percentage (Convert CGPA/SGPA into Percentage)</label>
                                                                 <input type="text" name="ug_marks" class="form-control" id="ug_marks" placeholder="Ex: Percentage (Don't include % symbol)">
                                                                 <div class="error-message text-danger" id="ug_marks-error"></div>
                                                             </div>
@@ -1155,7 +1175,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="widget-btn">
-                                                    <a class="btn btn-black prev_btn">Previous</a>
+                                                    <a class="btn btn-danger prev_btn">Previous</a>
                                                     <a class="btn btn-info-light" id="acadamictab">Continue</a>
                                                 </div>
                                             </div>
@@ -1274,7 +1294,7 @@
 
                                                 </div>
                                                 <div class="widget-btn">
-                                                    <a class="btn btn-black prev_btn">Previous</a>
+                                                    <a class="btn btn-danger prev_btn">Previous</a>
                                                     <a class="btn btn-info-light" id="othertab">Continue</a>
                                                 </div>
                                             </div>
@@ -1282,7 +1302,7 @@
                                         <fieldset class="field-card">
                                             <div class="add-course-info">
                                                 <div class="add-course-inner-header">
-                                                    <h4>Rules and Regulations:</h4>
+                                                    <h4>Terms and conditions:</h4>
                                                 </div>
                                                 <div class="add-course-form">
 
@@ -1290,38 +1310,23 @@
                                                 <input type="text" data-role="tagsinput" class="input-tags form-control" name="html" value="jquery, bootstrap" id="html">
                                             </div> -->
                                                     <label>
-                                                        1) Hostel rooms assigned to the students cannot be changed without written permission from the authorities responsible for accommodation management. <br>
+                                                        1. The application will not be considered and will be rejected if the Applicant does not provide currect documents.<br>
 
-                                                        2) Students are not allowed to accommodate relatives, friends or any other person in their hostel rooms.<br>
+                                                        2. The applicant should be a Veerashaiva. <br>
 
-                                                        3) Only during specified hours (5 PM to 7 PM), parents, guardians or friends can visit the students in their individual rooms.<br>
+                                                        3. Admission to the boys hostel in Bangalore is only for BE/B.Tech, BSc Nursing, BSc Agriculture, MBBS, B.Pharma, Paramedical, and all PG courses. <br>
 
-                                                        4) Lighting open flames (such as candles, incense sticks) and using electrical appliances, heaters, stoves, water heating coils, etc., are strictly prohibited in the hostel.<br>
+                                                        4. The applicant should have at least passed SSLC. <br>
 
-                                                        5) Students must Perform daily morning rituals, and wear a red towel and white dhoti during their daily prayers.<br>
+                                                        5. Those who have stayed in RBDGTC hostel before should also submit the admit card along with the eligibility documents. <br>
 
-                                                        6) During mealtime, all students of a batch must be present in the dining hall together. No one is allowed to join late.<br>
+                                                        6. The applicant is required to upload all the marks cards obtained in the examination. <br>
 
-                                                        7) Students should not litter or mess around during mealtime. After finishing their meals, they must clean the area around their plates to maintain cleanliness.<br>
+                                                        7. The applicant must provide a complete address and be prepared to attend the interview. The interview schedule will be posted in the hostel office. <br>
 
-                                                        8) Students should maintain a peaceful atmosphere during mealtime and avoid making unnecessary noise.<br>
+                                                        8. Students should not change the technical or other courses chosen at the time of admission without the permission of the hostel officers. <br>
 
-                                                        9) Using harsh language with the kitchen staff or any other hostel staff and engaging in arguments is not allowed.<br>
-
-                                                        10) Students are not allowed to leave the hostel premises during their leave period without informing and obtaining permission from the authorities.<br>
-
-                                                        11) Students must keep their hostel rooms clean and tidy.<br>
-
-                                                        12) Smoking and using tobacco products are strictly prohibited in the hostel. Anyone found violating this rule will be immediately expelled from the hostel.<br>
-
-                                                        13) After completing their exams, students must vacate their rooms, hand over their hostel identification sheets to the administrative staff, and obtain permission to re-enter the hostel. No students are allowed to re-enter the hostel without permission.<br>
-
-                                                        14) Students are not authorized to question or inquire about administrative matters of the hostel. Any complaints or issues should be brought to the attention of the wardens or the hostel authorities.<br>
-
-                                                        15) Students must always engage in studies without wasting time. They must attend college regularly and uphold the dignity and reputation of the hostel by displaying discipline and decorum.<br>
-
-                                                        16) All students must abide by the rules and regulations set by the institution. Any violation of rules by a student in their room will affect the entire room, and suitable action will be taken.<br>
-
+                                                        9. If the student receives any other accommodation assistance for the aforementioned studies, they must promptly inform and vacate the dormitory. <br>
                                                     </label>
                                                     <div class="form-check remember-me mt-5">
                                                         <label class="form-check-label mb-0">
@@ -1331,7 +1336,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="widget-btn">
-                                                    <a class="btn btn-black prev_btn">Previous</a>
+                                                    <a class="btn btn-danger prev_btn">Previous</a>
                                                     <input type="submit" name="submit" class="btn btn-success-dark" id="finaltab" value="submit">
                                                 </div>
                                             </div>

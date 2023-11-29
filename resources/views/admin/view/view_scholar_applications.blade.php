@@ -94,6 +94,31 @@
         }
     }
     $(document).ready(function() {
+
+        $('#submit').click(function() {
+            var action = $('#action').val();
+            var remark = $('#remark').val();
+            var app_id = $('#application_id1').val();
+
+            $.ajax({
+                url: "/scholarship/update/" + app_id + "/" + action + "/" + remark,
+                type: 'get',
+                success: function(result) {
+                    console.log(result);
+                    $('#eventedit').modal('hide');
+                    $('#filterButton').click();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            });
+        });
+
+
         $('#filter').hide();
 
         $('#filterButton').on('click', function() {
@@ -141,12 +166,12 @@
                                         <td>
                                             <h6 class="mb-0">${result[i].status}</h6>
                                         </td>
-                                        <td>
-                                            <h6 class="mb-0 text-center">
-                                                <a style="margin-right: 10px;" href="/scholarshipselectreject/${result[i].application_id}/Approved"><i class="fa-solid fa-circle-check fa-2xl" data-toggle="tooltip" data-placement="top" title="Approve" style="color: #6ac81e;"></i></a>
-                                                <a href="/scholarshipselectreject/${result[i].application_id}/Rejected"><i class="fa-solid fa-circle-xmark fa-2xl" data-toggle="tooltip" data-placement="top" title="Reject" style="color: #db1f1f;"></i></a>
-                                            </h6>
+                                        <td class="text-center">
+                                            <a href="#" onclick="edit_application('${result[i].application_id}')">
+                                                <i class="fa-solid fa-pen-to-square fa-lg" style="color: #32912b;"></i>
+                                            </a>
                                         </td>
+                                        
                                         <td class="text-center">
                                             <a href="/adminprintadmission/${result[i].s_id}" class="btn btn-success"><i class="fa-solid fa-print fa-lg"></i> Print</a>
                                         </td>
@@ -626,7 +651,7 @@
                             <div class="col-md-6 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Action<span class="required">*</span></label>
-                                    <select value="" name="action" required class="default-select form-control wide">
+                                    <select value="" name="action" id="action" required class="default-select form-control wide">
                                         <option value="" selected disabled>Select</option>
                                         <option value="Approved">Select</option>
                                         <option value="Rejected">Reject</option>
@@ -636,7 +661,7 @@
                             <div class="col-md-12 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Remark<span class="required">*</span></label>
-                                    <input type="text" name="modified_reason" class="form-control" id="" placeholder="" required>
+                                    <input type="text" name="modified_reason" class="form-control" id="remark" placeholder="" required>
                                 </div>
                             </div>
                             <input type="text" id="application_id1" name="application_id" hidden>
@@ -646,7 +671,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Made Changes</button>
+                    <button type="button" class="btn btn-primary" id="submit">Save Changes</button>
                 </div>
             </form>
         </div>

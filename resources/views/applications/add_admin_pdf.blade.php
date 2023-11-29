@@ -129,6 +129,10 @@
             <td>{{ \Carbon\Carbon::parse($data[0]->dob)->format('d-m-Y') }}</td>
         </tr>
         <tr>
+            <td>Gender</td>
+            <td>{{$data[0]->gender}}</td>
+        </tr>
+        <tr>
             <td>Aadhar Number</td>
             <td>{{$data[0]->aadhar_number}}</td>
         </tr>
@@ -195,11 +199,15 @@
             <td>{{$data[0]->previously_studied_course}}</td>
         </tr>
         <tr>
-            <td>Entrance exam type</td>
+            <td>Type of Entrance exam</td>
             <td>{{$data[0]->entrance_exam_type}}</td>
         </tr>
         <tr>
-            <td>Present Year Course</td>
+            <td>Are you joined for college</td>
+            <td>{{$data[0]->college_joined_or_not}}</td>
+        </tr>
+        <tr>
+            <td>Course name</td>
             <td>{{$data[0]->present_year_course}}</td>
         </tr>
         <tr>

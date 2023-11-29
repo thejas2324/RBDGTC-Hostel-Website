@@ -295,6 +295,17 @@
     </div>
     <div>
         <?php
+        $fee_receipt = $data[0]->fee_receipt;
+        try {
+            $size = getimagesize("admissions/applicant_fee_receipt/$fee_receipt");
+            echo "<img src='admissions/applicant_fee_receipt/$fee_receipt' width='100%' height='1000px'>";
+        } catch (Exception $e) {
+            echo "";
+        }
+        ?>
+    </div>
+    <div>
+        <?php
         $rural_certificate = $data[0]->rural_certificate;
         try {
             $size = getimagesize("admissions/rural_certificate/$rural_certificate");
@@ -383,4 +394,5 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </html>

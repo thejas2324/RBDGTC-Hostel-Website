@@ -129,6 +129,10 @@
             <td>{{ \Carbon\Carbon::parse($data[0]->dob)->format('d-m-Y') }}</td>
         </tr>
         <tr>
+            <td>Gender</td>
+            <td>{{$data[0]->gender}}</td>
+        </tr>
+        <tr>
             <td>Mobile Number</td>
             <td>{{$data[0]->mobile_number}}</td>
         </tr>
@@ -195,17 +199,22 @@
             <td>{{$data[0]->previously_studied_course}}</td>
         </tr>
         <tr>
-            <td>Present Year Course</td>
+            <td>Type of Entrance exam</td>
+            <td>{{$data[0]->entrance_exam_type}}</td>
+        </tr>
+        <tr>
+            <td>Are you joined for college</td>
+            <td>{{$data[0]->college_joined_or_not}}</td>
+        </tr>
+        <tr>
+            <td>Course name</td>
             <td>{{$data[0]->present_year_course}}</td>
         </tr>
         <tr>
             <td>Present College</td>
             <td>{{$data[0]->present_college_name}}</td>
         </tr>
-        <tr>
-            <td>Type of Entrance exam</td>
-            <td>{{$data[0]->entrance_exam_type}}</td>
-        </tr>
+
         <tr>
             <td>If the applicant has been awarded any scholarship or financial assistance from an institute or organization,
                 kindly specify the amount and the respective source of funding.
@@ -235,57 +244,37 @@
     </div>
     <div>
         <h2 align="left" style="margin-top:50px;">Points to be noted by applicants</h2>
+
         <ol>
-            <li>Hostel rooms assigned to the students cannot be changed without written permission from the authorities responsible for accommodation management. <br>
-            </li>
-            <li>Students are not allowed to accommodate relatives, friends or any other person in their hostel rooms.<br>
-            </li>
-            <li>Only during specified hours (5 PM to 7 PM), parents, guardians or friends can visit the students in their individual rooms.<br>
-            </li>
-            <li>Lighting open flames (such as candles, incense sticks) and using electrical appliances, heaters, stoves, water heating coils, etc., are strictly prohibited in the hostel.<br>
-            </li>
-            <li>Students must Perform daily morning rituals, and wear a red towel and white dhoti during their daily prayers.<br>
-            </li>
-            <li>During mealtime, all students of a batch must be present in the dining hall together. No one is allowed to join late.<br>
-            </li>
-            <li>Students should not litter or mess around during mealtime. After finishing their meals, they must clean the area around their plates to maintain cleanliness.<br>
-            </li>
 
-            <li>Students should maintain a peaceful atmosphere during mealtime and avoid making unnecessary noise.<br>
-            </li>
-            <li>Using harsh language with the kitchen staff or any other hostel staff and engaging in arguments is not allowed.<br>
-            </li>
-            <li>Students are not allowed to leave the hostel premises during their leave period without informing and obtaining permission from the authorities.<br>
-            </li>
-            <li>Students must keep their hostel rooms clean and tidy.<br>
-            </li>
+            <li> The application will not be considered and will be rejected if the Applicant does not provide currect documents.</li>
 
-            <li>Smoking and using tobacco products are strictly prohibited in the hostel. Anyone found violating this rule will be immediately expelled from the hostel.<br>
-            </li>
-            <li>After completing their exams, students must vacate their rooms, hand over their hostel identification sheets to the administrative staff, and obtain permission to re-enter the hostel. No students are allowed to re-enter the hostel without permission.<br>
-            </li>
-            <li>Students are not authorized to question or inquire about administrative matters of the hostel. Any complaints or issues should be brought to the attention of the wardens or the hostel authorities.<br>
-            </li>
-            <li>Students must always engage in studies without wasting time. They must attend college regularly and uphold the dignity and reputation of the hostel by displaying discipline and decorum.<br>
-            </li>
-            <li>All students must abide by the rules and regulations set by the institution. Any violation of rules by a student in their room will affect the entire room, and suitable action will be taken.<br>
-            </li>
+            <li> The applicant should be a Veerashaiva. </li>
+
+            <li> Admission to the boys hostel in Bangalore is only for BE/B.Tech, BSc Nursing, BSc Agriculture, MBBS, B.Pharma, Paramedical, and all PG courses. </li>
+
+            <li> The applicant should have at least passed SSLC. </li>
+
+            <li> Those who have stayed in RBDGTC hostel before should also submit the admit card along with the eligibility documents. </li>
+
+            <li> The applicant is required to upload all the marks cards obtained in the examination. </li>
+
+            <li> The applicant must provide a complete address and be prepared to attend the interview. The interview schedule will be posted in the hostel office. </li>
+
+            <li> Students should not change the technical or other courses chosen at the time of admission without the permission of the hostel officers. </li>
+
+            <li> If the student receives any other accommodation assistance for the aforementioned studies, they must promptly inform and vacate the dormitory. </li>
+
         </ol>
     </div>
     <div class="mt-5">
         <h2>Important Points</h2>
         <ol>
             <li>
-                Do attach all year marks cards Income certificate.
+                Take a printout of the application and do attach all the required documents.
             </li>
             <li>
-                Do attach Character certificate.
-            </li>
-            <li>
-                Do attach CET and College admission Fee receipt.
-            </li>
-            <li>
-                Come with all required documents in the time of interview.
+                Come with all required documents at the time of interview.
             </li>
         </ol>
     </div>

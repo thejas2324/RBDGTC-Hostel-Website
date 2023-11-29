@@ -75,6 +75,7 @@
         text-align: center;
     }
 </style>
+
 <script>
     function degreefilter() {
         if ($('#filtercolumn').val() == "degree") {
@@ -84,6 +85,32 @@
         }
     }
     $(document).ready(function() {
+
+        $('#submit').click(function() {
+            var action = $('#action').val();
+            var remark = $('#remark').val();
+            var app_id = $('#application_id1').val();
+
+            $.ajax({
+                url: "/admission/update/" + app_id + "/" + action + "/" + remark,
+                type: 'get',
+                success: function(result) {
+                    console.log(result);
+                    $('#eventedit').modal('hide');
+                    $('#filterButton').click();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            });
+
+        });
+
+
         $('#filter').hide();
 
         $('#filterButton').on('click', function() {
@@ -103,7 +130,7 @@
 
             // Send AJAX request to the server with selected filters
             $.ajax({
-                url: '/applications/filter', // Replace with your server endpoint
+                url: '/selectedapplications/filter', // Replace with your server endpoint
                 type: 'post', // or 'GET' depending on your server setup
                 data: data,
                 success: function(result) {
@@ -115,6 +142,9 @@
                                         <td><span class="text-primary font-w600">${result[i].application_id}</span></td>
                                         <td>
                                             <h6 class="mb-0">${result[i].applicant_name}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">${result[i].gender}</h6>
                                         </td>
                                         <td>
                                             <h6 class="mb-0">${result[i].puc_diploma_marks}</h6>
@@ -130,6 +160,14 @@
                                         </td>
                                         <td>
                                             <h6 class="mb-0">${result[i].status}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">${result[i].action_taken_by}</h6>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" onclick="edit_application('${result[i].application_id}')">
+                                                <i class="fa-solid fa-pen-to-square fa-lg" style="color: #32912b;"></i>
+                                            </a>
                                         </td>
                                         <td class="text-center">
                                             <a href="/adminprintadmission/${result[i].s_id}" class="btn btn-success"><i class="fa-solid fa-print fa-lg"></i> Print</a>
@@ -235,7 +273,7 @@
                         </div>
                     </div>
                     <!-- filter -->
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col-md-2">
                             <select class="default-select form-control wide mt-3" id="filtercolumn" onchange="degreefilter()">
                                 <option value="" disabled selected>Select</option>
@@ -279,7 +317,7 @@
                         <div class="col-md-2 mt-3">
                             <button id="filterButton" type="submit" value="submit" class="btn btn-outline-primary me-3">Filter</button>
                         </div>
-                    </div> -->
+                    </div>
 
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
@@ -606,7 +644,7 @@
                             <div class="col-md-6 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Action<span class="required">*</span></label>
-                                    <select value="" name="action" required class="default-select form-control wide">
+                                    <select value="" name="action" id="action" required class="default-select form-control wide">
                                         <option value="" selected disabled>Select</option>
                                         <option value="Approved">Select</option>
                                         <option value="Rejected">Reject</option>
@@ -616,17 +654,18 @@
                             <div class="col-md-12 mt-3">
                                 <div class="mb-3">
                                     <label class="form-label text-primary">Remark<span class="required">*</span></label>
-                                    <input type="text" name="modified_reason" class="form-control" id="" placeholder="" required>
+                                    <input type="text" name="modified_reason" id="remark" class="form-control" placeholder="" required>
                                 </div>
                             </div>
                             <input type="text" id="application_id1" name="application_id" hidden>
+                            <input type="text" value="{{session('admin_name')}}" hidden>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Made Changes</button>
+                    <button type="button" class="btn btn-primary" id="submit">Made Changes</button>
                 </div>
             </form>
         </div>
