@@ -336,6 +336,7 @@
 
             $('#personaltab').click(function() {
                 //tab 1
+                let selecthostel = $('#selecthostel').val();
                 let dob = $('#dob').val();
                 let gender = $('#gender').val();
                 let aadhar_card = $('#aadhar_card').val();
@@ -361,7 +362,11 @@
                 let applicant_signature = $('#applicant-signature').val();
                 let caste_income_certificate = $('#caste-income-certificate').val();
 
-                if (dob == "") {
+                if (selecthostel == "") {
+                    $('#selecthostel-error').html('Please Select which hostel you are applying');
+                    $('#selecthostel-error').show('fast');
+                    $('#selecthostel').focus();
+                } else if (dob == "") {
                     $('#dob-error').html('Please enter the Date of Birth');
                     $('#dob-error').show('fast');
                     $('#dob').focus();
@@ -438,7 +443,7 @@
                     $('#income_range-error').show('fast');
                     $('#income_range').focus();
                 } else if (caste_income_certificate == "") {
-                    $('#caste-income-certificate-error').html('Please select the Income Certificate');
+                    $('#caste-income-certificate-error').html('Please Upload the Income Certificate');
                     $('#caste-income-certificate-error').show('fast');
                     $('#caste-income-certificate').focus();
                 } else if (disability_status == "") {
@@ -735,25 +740,31 @@
                                         <fieldset id="first">
                                             <div class="add-course-info">
                                                 <div class="add-course-inner-header">
-                                                    <h4>Hostel Info</h4>
+                                                    <h4>Hostel Details</h4>
                                                 </div>
                                                 <div class="add-course-form">
                                                     <div class="row">
                                                         <div class="col-md-12">
-
                                                             <div class="form-group">
                                                                 <label class="add-course-label">Select Hostel</label>
-                                                                <select name="hostel" class="form-control select" id="hostel">
+                                                                <select name="selecthostel" class="form-control select" id="selecthostel">
                                                                     <option value="" selected>Select</option>
                                                                     @foreach($admission_hostels as $ah)
-                                                                    <option value="{{$ah->id}}">{{$ah->hostel_name}}</option>
+                                                                    <option value="{{$ah->hostel_name}} - {{$ah->boys_girls}} - {{$ah->hostel_taluk_district}}">{{$ah->hostel_name}} - {{$ah->boys_girls}} - {{$ah->hostel_taluk_district}}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <div class="error-message text-danger" id="gender-error"></div>
+                                                                <div class="error-message text-danger" id="selecthostel-error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <ul>
+                                                        <li>Online applications are open only for the hostels listed above.
+                                                            For hostels that are not accessible online, require applicants to contact their respective hostel office and submit applications manually.
+                                                        </li>
+                                                    </ul>
+
                                                 </div>
+
                                                 <div class="add-course-inner-header mt-3">
                                                     <h4>Personal Information</h4>
                                                 </div>

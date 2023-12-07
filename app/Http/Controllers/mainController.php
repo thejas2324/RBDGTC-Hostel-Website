@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\admin;
 use App\Models\contact;
 use App\Models\event;
+use App\Models\event_table;
 use App\Models\gallery;
 use App\Models\hostel;
 use App\Models\review;
@@ -15,9 +16,11 @@ class mainController extends Controller
 {
     function index()
     {
+        $application_event = event_table::where('title', 'Admission Application')->where('status', 'Running')->orderBy('created_at', 'desc')->get();
+        $scholarship_event = event_table::where('title', 'Scholarship Application')->where('status', 'Running')->orderBy('created_at', 'desc')->get();
         $reviews = review::inRandomOrder()->take(5)->get();
         $evnt = event::where('date', '>=', now())->get();
-        return view('index', ['evnt' => $evnt, 'reviews' => $reviews]);
+        return view('index', ['evnt' => $evnt, 'reviews' => $reviews, 'application_event' => $application_event, 'scholarship_event' => $scholarship_event]);
     }
     function about()
     {

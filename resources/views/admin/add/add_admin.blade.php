@@ -18,25 +18,25 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label text-primary">Admin Photo<span class="required">*</span></label>
-                                                <input type="file" name="image" class="form-control" placeholder="Hostel Photo">
+                                                <input type="file" name="image" class="form-control" placeholder="Hostel Photo" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label text-primary">Admin Name<span class="required">*</span></label>
-                                                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Admin Name">
+                                                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Admin Name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Phone Number<span class="required">*</span></label>
-                                                <input type="tel" name="mobile" class="form-control" id="exampleFormControlInput1" placeholder="Admin Phone">
+                                                <input type="tel" name="mobile" class="form-control" id="exampleFormControlInput1" placeholder="Admin Phone" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">E-mail<span class="required">*</span></label>
-                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Admin Email">
+                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Admin Email" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -53,13 +53,13 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Password<span class="required">*</span></label>
-                                                <input type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="password">
+                                                <input type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="password" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Address<span class="required">*</span></label>
-                                                <textarea name="address" class="form-control" id="" cols="30" rows="2"></textarea>
+                                                <textarea name="address" class="form-control" id="" cols="30" rows="2" required></textarea>
                                             </div>
                                         </div>
 

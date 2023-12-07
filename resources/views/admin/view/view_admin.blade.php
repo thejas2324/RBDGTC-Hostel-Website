@@ -12,7 +12,7 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                location.href = "/deletehostel/" + id;
+                location.href = "/deleteadmin/" + id;
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',

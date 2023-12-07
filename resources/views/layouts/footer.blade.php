@@ -1,15 +1,13 @@
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en'
+        }, 'google_translate_element');
+    }
+</script>
 
-
-    <div id="google_translate_element"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en'
-            }, 'google_translate_element');
-        }
-    </script>
-
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <footer class="footer footer-five" style="margin-top:100px;">
     <div class="footer-top-five">
@@ -22,7 +20,7 @@
                         <div class="footer-contact-info">
                             <div class="footer-address">
                                 <span><i class="feather-map-pin"></i></span>
-                                <p> Rao Bahadur Gubbi Thotadappa Charities <br> Bengaluru, 560023 </p>
+                                <p> Rao Bahadur Dharmapravartha Gubbi Thotadappa Charities. <br> Bengaluru, 560023 </p>
                             </div>
                             <p class="mb-0">
                                 <span class="phone-icon"><i class="fa-solid fa-phone-volume"></i></span>

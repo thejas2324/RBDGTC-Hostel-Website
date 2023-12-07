@@ -88,6 +88,7 @@ class loginController extends Controller
             return redirect('/viewadmin');
         }
     }
+    
     //logout
     function admin_logout()
     {

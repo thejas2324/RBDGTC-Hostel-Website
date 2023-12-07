@@ -142,6 +142,9 @@
                         htmldata += `<tr>
                                         <td><span class="text-primary font-w600">${result[i].application_id}</span></td>
                                         <td>
+                                            <h6 class="mb-0">${result[i].applying_hostel}</h6>
+                                        </td>
+                                        <td>
                                             <h6 class="mb-0">${result[i].applicant_name}</h6>
                                         </td>
                                         <td>
@@ -202,6 +205,7 @@
                 $('#date').html(formattedDate);
                 $('#application_id').html(res[0].application_id);
                 $('#application_id1').val(res[0].application_id);
+                $('#applying_hostel').html(res[0].applying_hostel);
                 $('#applicant_name').html(res[0].applicant_name);
                 $('#dob').html(res[0].dob);
                 $('#gender').html(res[0].gender);
@@ -327,6 +331,7 @@
                                     <tr>
                                         <!-- <th>image</th> -->
                                         <th>Application ID</th>
+                                        <th>applied Hostel</th>
                                         <th>Applicant Name</th>
                                         <th>Gender</th>
                                         <th>PUC Percentage</th>
@@ -349,6 +354,9 @@
                                             </div>
                                         </td> -->
                                         <td><span class="text-primary font-w600">{{$dt->application_id}}</span></td>
+                                        <td>
+                                            <h6 class="mb-0">{{$dt->applying_hostel}}</h6>
+                                        </td>
                                         <td>
                                             <h6 class="mb-0">{{$dt->applicant_name}}</h6>
                                         </td>
@@ -445,6 +453,10 @@
                             <tr>
                                 <td>Application ID</td>
                                 <td style="color: red;" id="application_id"></td>
+                            </tr>
+                            <tr>
+                                <td>Applyed hostel</td>
+                                <td id="applying_hostel"></td>
                             </tr>
                             <tr>
                                 <td>Applicant's Name</td>

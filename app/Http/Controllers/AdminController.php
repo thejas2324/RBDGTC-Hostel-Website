@@ -269,6 +269,7 @@ class AdminController extends Controller
                 "boys_girls" => $request->boysorgirls,
                 "total_students" => $request->total,
                 "location" => $request->location,
+                "hostel_taluk_district" => $request->exact_city,
                 "mobile" => $request->mobile,
                 "email_id" => $request->email
             ];
@@ -329,6 +330,13 @@ class AdminController extends Controller
     {
         event::where('id', $id)->delete();
         return redirect('/viewevent');
+    }
+
+    //delete admin
+    function delete_admin($id)
+    {
+        admin::where('id', $id)->delete();
+        return redirect('/viewadmin');
     }
 
     //delete hostel

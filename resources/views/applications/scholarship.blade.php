@@ -680,7 +680,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Applicant's Name</label>
+                                                                <label class="add-course-label">Applicant Name</label>
                                                                 <input type="text" name="id" value="{{$user->id}}" hidden> <!-- application ID -->
                                                                 <input type="text" name="applicant_name" class="form-control" value="{{$user->applicant_name}}" placeholder="Student Name" readonly required>
                                                             </div>
@@ -709,7 +709,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Applicant's Image</label>
+                                                                <label class="add-course-label">Upload Applicant Image</label>
                                                                 <div class="relative-form" style="width:100%;">
                                                                     <input type="file" name="applicant_image" value="{{$user->applicant_image}}" class="form-control1" id="image" accept=".jpg, .jpeg, .png" max="500000" required>
                                                                 </div>
@@ -725,8 +725,8 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="add-course-label">Alternative Mobile Number</label>
-                                                                <input type="text" name="alternative_mobile" class="form-control" value="{{$user->alternative_mobile}}" id="alternative_mobile" placeholder="Alternative Mobile Number" required>
+                                                                <label class="add-course-label">Parent Mobile Number</label>
+                                                                <input type="text" name="alternative_mobile" class="form-control" value="{{$user->alternative_mobile}}" id="alternative_mobile" placeholder="Parent Mobile Number" required>
                                                                 <div class="error-message text-danger" id="alternative_mobile-error"></div>
                                                             </div>
                                                         </div>
@@ -1181,18 +1181,18 @@
                                         <fieldset class="field-card">
                                             <div class="add-course-info">
                                                 <div class="add-course-inner-header">
-                                                    <h4>Rules and Regulations:</h4>
+                                                    <h4>Terms and conditions:</h4>
                                                 </div>
                                                 <div class="add-course-form">
 
                                                     <label>
-                                                        1) Providing all the details and documents requested in the application within the stipulated time. Failure to do so will result in rejection of such applications. <br>
+                                                        1. Providing all the details and documents requested in the application within the stipulated time. Failure to do so will result in rejection of such applications. <br>
 
-                                                        2) Only those students who have passed all the subjects of the years annual examinations are eligible to apply.<br>
+                                                        2. Only those students who have passed all the subjects of the years annual examinations are eligible to apply.<br>
 
-                                                        3) Students availing free studentship facility and freeship, merit scholarship or any free scholarship should confirm such details and submit honestly.<br>
+                                                        3. Students availing free studentship facility and freeship, merit scholarship or any free scholarship should confirm such details and submit honestly.<br>
 
-                                                        4) Applicant Should be Veerashaiva Lingayat students.<br>
+                                                        4. Applicant Should be Veerashaiva Lingayat students.<br>
                                                     </label>
 
                                                     <div class="form-check remember-me mt-5">

@@ -175,6 +175,12 @@
                                                                     <input type="mail" name="email" class="form-control" name="email" value="{{$hostel->email_id}}" id="email1">
                                                                 </div>
                                                             </div>
+                                                            <div class="col-xl-12 mt-3">
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput2" class="form-label mb-2">Hostel exact City Location (For application reference)</label>
+                                                                    <input type="text" name="exact_city" class="form-control" value="{{$hostel->hostel_taluk_district}}" name="email" value="{{$hostel->email_id}}" id="">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">

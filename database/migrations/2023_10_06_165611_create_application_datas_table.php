@@ -21,6 +21,7 @@ return new class extends Migration
                 ->onDelete('cascade') // On delete cascade
                 ->onUpdate('cascade');
 
+            $table->string('applying_hostel')->nullable();
             $table->string('income_range')->nullable();
             $table->string('income_certificate')->nullable();
             $table->string('dependent_status')->nullable();

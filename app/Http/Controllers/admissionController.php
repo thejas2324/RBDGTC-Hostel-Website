@@ -129,6 +129,7 @@ class admissionController extends Controller
 
         $studentappdata = [
             "s_id" => $request->id,
+            "applying_hostel" => $request->selecthostel,
             "income_range" => $request->income_range,
             "dependent_status" => $request->dependent,
             "disability_status" => $request->disability_status,

@@ -28,7 +28,7 @@
                             <a href="/">Home</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                            <a href="">About Us <i class="fas fa-chevron-down"></i></a>
                             <ul class="submenu first-submenu">
                                 <li><a href="/founder">About Founder</a></li>
                                 <li><a href="/aboutrbdgtc">About RBDGTC</a></li>

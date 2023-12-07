@@ -18,26 +18,26 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Photo<span class="required">*</span></label>
-                                                <input type="file" name="image" class="form-control" id="exampleFormControlInput1">
+                                                <input type="file" name="image" class="form-control" id="exampleFormControlInput1" required>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Function Name<span class="required">*</span></label>
-                                                <input type="text" name="pn" class="form-control" id="exampleFormControlInput1" placeholder="What kind of event photo">
+                                                <input type="text" name="pn" class="form-control" id="exampleFormControlInput1" placeholder="What kind of event photo" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Date<span class="required">*</span></label>
-                                                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="ex: 2021-2023">
+                                                <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="ex: 2021-2023" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">About Photo<span></span></label>
-                                                <textarea name="about" class="form-control" id="" cols="30" rows="5" placeholder="message 1"></textarea>
+                                                <textarea name="about" class="form-control" id="" cols="30" rows="5" placeholder="message 1" required></textarea>
                                             </div>
                                         </div>
                                     </div>

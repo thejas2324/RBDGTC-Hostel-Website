@@ -121,6 +121,10 @@
             <td style="color: red;">{{$data[0]->application_id}}</td>
         </tr>
         <tr>
+            <td>applied Hostel</td>
+            <td>{{$data[0]->applying_hostel}}</td>
+        </tr>
+        <tr>
             <td>Applicant's Name</td>
             <td>{{$data[0]->applicant_name}}</td>
         </tr>

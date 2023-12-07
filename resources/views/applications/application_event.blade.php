@@ -62,6 +62,7 @@
                                                 <th>Application Year</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
+                                                <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
@@ -92,9 +93,70 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
+                                                    <a data-bs-toggle="modal" data-bs-target="#eventedit{{$event->id}}"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #32912b;"></i></a>
+                                                </td>
+                                                <td class="text-center">
                                                     <button class="btn btn-danger" onclick="confirmDelete('{{$event->id}}','{{$event->title}}')"><i class="fa fa-trash"></i></button> </a>
                                                 </td>
                                             </tr>
+
+                                            <!-- model -->
+                                            <div class="modal fade" id="eventedit{{$event->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-center model-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit Application Event</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form action="/applicationevent/update" method="post" enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-xl-6 mt-3">
+                                                                        <div class="mb-3">
+                                                                            <label class="form-label mb-2">Title<span class="required">*</span></label>
+                                                                            <select name="title" required class="default-select form-control wide">
+                                                                                <option value="{{$event->title}}" selected>{{$event->title}}</option>
+                                                                                <option value="Admission Application">Admission Application</option>
+                                                                                <option value="Scholarship Application">Scholarship Application</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <input type="text" name="event_table_id" value="{{$event->id}}" hidden>
+                                                                            <label for="exampleFormControlInput2" class="form-label mb-2">Year</label>
+                                                                            <input type="text" name="year" value="{{$event->application_year}}" class="form-control" id="" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-6 mt-3">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput4" class="form-label mb-2">Application open date</label>
+                                                                            <input type="date" class="form-control" value="{{$event->open_date}}" id="" name="open_date">
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput4" class="form-label mb-2">Application close date</label>
+                                                                            <input type="date" class="form-control" id="" value="{{$event->close_date}}" name="close_date">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-12 mt-3">
+                                                                        <div class="mb-3">
+                                                                            <label class="form-label mb-2">Hostel names<span class="required">*</span></label>
+                                                                            <select name="hostels[]" required multiple class="default-select form-control wide">
+                                                                                @foreach($hostelnames as $hn)
+                                                                                <option value="{{$hn->id}}">{{$hn->hostel_name}} - {{$hn->boys_girls}} - {{$hn->hostel_taluk_district}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             @endforeach
                                         </tbody>
                                     </table>

@@ -141,6 +141,9 @@
                         htmldata += `<tr>
                                         <td><span class="text-primary font-w600">${result[i].application_id}</span></td>
                                         <td>
+                                            <h6 class="mb-0">${result[i].applying_hostel}</h6>
+                                        </td>
+                                        <td>
                                             <h6 class="mb-0">${result[i].applicant_name}</h6>
                                         </td>
                                         <td>
@@ -327,6 +330,7 @@
                                     <tr>
                                         <!-- <th>image</th> -->
                                         <th>Application ID</th>
+                                        <th>applied Hostel</th>
                                         <th>Applicant Name</th>
                                         <th>Gender</th>
                                         <th>PUC Percentage</th>
@@ -350,6 +354,9 @@
                                             </div>
                                         </td> -->
                                         <td><span class="text-primary font-w600">{{$selectedapplication->application_id}}</span></td>
+                                        <td>
+                                            <h6 class="mb-0">{{$selectedapplication->applying_hostel}}</h6>
+                                        </td>
                                         <td>
                                             <h6 class="mb-0">{{$selectedapplication->applicant_name}}</h6>
                                         </td>

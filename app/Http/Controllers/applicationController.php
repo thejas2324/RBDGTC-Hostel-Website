@@ -30,7 +30,11 @@ class applicationController extends Controller
         $admission_hostels = hostel::whereIn('id', $admissionhostels_ids)->get();
 
         $user = student_basedata::where('aadhar_number', session('aadhar_number'))->first();
-        $result = ['user' => $user, 'admission_hostels' => $admission_hostels];
+
+        $result = [
+            'user' => $user,
+            'admission_hostels' => $admission_hostels
+        ];
         return view('applications.admission', $result);
     }
 
@@ -65,12 +69,6 @@ class applicationController extends Controller
             'admissionevent' => $admissionevent,
             'scholarshipevent' => $scholarshipevent
         ];
-
-        if (count($scholarshipevent) > 0) {
-            $cholarshiphostels_ids = explode(',', $scholarshipevent[0]->hostels);
-            $scholarship_hostels = hostel::whereIn('id', $cholarshiphostels_ids)->get();
-            $result['scholarship_hostels'] = $scholarship_hostels;
-        }
         return view('applications.student_page', $result);
     }
 
@@ -219,7 +217,6 @@ class applicationController extends Controller
             "close_date" => $request->closedate,
         ];
 
-
         event_table::create($data);
         admin_activity::create($admin_activity);
         return redirect()->back()->with('success', 'Event added Succesfully');
@@ -227,12 +224,13 @@ class applicationController extends Controller
 
     function manage_application($status = 'All')
     {
+        $hostelnames = hostel::all();
         if ($status == "All") {
             $events = event_table::all();
         } else {
             $events = event_table::where('status', $status)->get();
         }
-        return view('applications.application_event', ['events' => $events, 'status' => $status]);
+        return view('applications.application_event', ['events' => $events, 'status' => $status, 'hostelnames' => $hostelnames]);
     }
 
     function event_update($application_event_id, $status)

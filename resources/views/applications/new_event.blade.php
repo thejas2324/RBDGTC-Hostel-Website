@@ -34,17 +34,16 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="" class="form-label text-primary">Year<span class="required">*</span></label>
-                                                <input type="text" name="academicyear" class="form-control" id="exampleFormControlInput1" value="<?php echo date('Y') ?>" readonly>
+                                                <input type="text" name="academicyear" class="form-control" id="exampleFormControlInput1" value="<?php echo date('Y') ?>" readonly required>
                                             </div>
                                         </div>
-
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label text-primary">Hostels<span class="required">*</span></label>
                                                 <select value="" name="hostels[]" id="hostels" multiple required class="default-select form-control wide">
                                                     <option value="" disabled>Select</option>
                                                     @foreach($hostels as $hostel)
-                                                    <option value="{{$hostel->id}}">{{$hostel->hostel_name}}</option>
+                                                    <option value="{{$hostel->id}}">{{$hostel->hostel_name}} - {{$hostel->boys_girls}} - {{$hostel->hostel_taluk_district}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -52,13 +51,13 @@
                                         <div class="col-md-6 mt-4">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Application Open Date<span class="required">*</span></label>
-                                                <input type="date" name="opendate" class="form-control" id="opendate">
+                                                <input type="date" name="opendate" class="form-control" id="opendate" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mt-4">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Application Close Date<span class="required">*</span></label>
-                                                <input type="date" name="closedate" class="form-control" id="closedate">
+                                                <input type="date" name="closedate" class="form-control" id="closedate" required>
                                             </div>
                                         </div>
 

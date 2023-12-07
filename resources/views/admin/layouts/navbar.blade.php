@@ -14,7 +14,7 @@
                     <span class="nav-text">Admissions</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="/viewapplication">All admission applications</a></li>
+                    <li><a href="/viewapplication">Pending admission applications</a></li>
                     <li><a href="/selectedapplications">Selected applications</a></li>
                     <li><a href="/rejectedapplications">Rejected applications</a></li>
                 </ul>
@@ -24,7 +24,7 @@
                     <span class="nav-text">Scholarships</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="/viewscholarship">All Scholarship applications</a></li>
+                    <li><a href="/viewscholarship">Pending   Scholarship applications</a></li>
                     <li><a href="/selectedscholarship">Selected applications</a></li>
                     <li><a href="/rejectedscholarship">Rejected applications</a></li>
                 </ul>

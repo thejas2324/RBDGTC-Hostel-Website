@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('boys_girls')->nullable();
             $table->string('total_students')->nullable();
             $table->string('location')->nullable();
+            $table->string('hostel_taluk_district')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email_id')->nullable();
             $table->timestamps();

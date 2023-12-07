@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin;
 use App\Models\event;
+use App\Models\event_table;
 use App\Models\hostel;
 use App\Models\review;
 use App\Models\trustee;
@@ -147,6 +148,7 @@ class updateController extends Controller
                 "boys_girls" => $request->type,
                 "total_students" => $request->totalstd,
                 "location" => $request->location,
+                "hostel_taluk_district" => $request->exact_city,
                 "mobile" => $request->mobile,
                 "email_id" => $request->email,
 
@@ -159,6 +161,7 @@ class updateController extends Controller
                 "boys_girls" => $request->type,
                 "total_students" => $request->totalstd,
                 "location" => $request->location,
+                "hostel_taluk_district" => $request->exact_city,
                 "mobile" => $request->mobile,
                 "email_id" => $request->email,
             ];
@@ -261,5 +264,18 @@ class updateController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    //application event update
+    function application_event_update(Request $request)
+    {
+        $data = [
+            "title" => $request->title,
+            "hostels" => implode(',', $request->input('hostels')),
+            "open_date" => $request->open_date,
+            "close_date" => $request->close_date,
+        ];
+        event_table::where('id', $request->event_table_id)->update($data);
+        return redirect('/manage_application');
     }
 }

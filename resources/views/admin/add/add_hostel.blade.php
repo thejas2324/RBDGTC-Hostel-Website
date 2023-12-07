@@ -13,19 +13,18 @@
                         <form action="/addhostel_check" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-
                                 <div class="col-xl-12 col-lg-8">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label text-primary">Hostel Photo<span class="required">*</span></label>
-                                                <input type="file" name="image" class="form-control" placeholder="Hostel Photo">
+                                                <input type="file" name="image" class="form-control" placeholder="Hostel Photo" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label text-primary">Hostel Name<span class="required">*</span></label>
-                                                <input type="text" name="hostelname" class="form-control" id="exampleFormControlInput1" placeholder="Hostel Name">
+                                                <input type="text" name="hostelname" class="form-control" id="exampleFormControlInput1" placeholder="Hostel Name" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -38,29 +37,34 @@
                                                 </select>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Total students<span class="required">*</span></label>
-                                                <input type="text" name="total" class="form-control" id="exampleFormControlInput1" placeholder="Total No of students">
+                                                <input type="text" name="total" class="form-control" id="exampleFormControlInput1" placeholder="Total No of students" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Location<span class="required">*</span></label>
-                                                <input type="text" name="location" class="form-control" id="exampleFormControlInput1" placeholder="Location with pincode">
+                                                <input type="text" name="location" class="form-control" id="exampleFormControlInput1" placeholder="Location with pincode" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">Hostel Mobile<span class="required">*</span></label>
-                                                <input type="tel" name="mobile" class="form-control" id="exampleFormControlInput1" placeholder="Hostel Phone Number">
+                                                <input type="tel" name="mobile" class="form-control" id="exampleFormControlInput1" placeholder="Hostel Phone Number" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label text-primary">E-mail<span class="required">*</span></label>
-                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Hostel Email">
+                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Hostel Email" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label text-primary">Hostel exact City Location (For application reference)<span class="required">*</span></label>
+                                                <input type="text" name="exact_city" class="form-control" id="" placeholder="Ex1: Majestic, Bengaluru              Ex2: K R Nagara, Mysuru" required>
                                             </div>
                                         </div>
                                     </div>

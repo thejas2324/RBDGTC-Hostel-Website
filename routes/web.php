@@ -124,6 +124,7 @@ Route::post('/addgallery_check', [AdminController::class, 'addgallery_check']);
 
 
 //delete event
+Route::get('/deleteadmin/{id}', [AdminController::class, 'delete_admin']);
 Route::get('/deleteevent/{id}', [AdminController::class, 'delete_event']);
 Route::get('/deletehostel/{id}', [AdminController::class, 'delete_hostel']);
 Route::get('/deletetrustee/{id}', [AdminController::class, 'delete_trustee']);
@@ -156,6 +157,9 @@ Route::post('/trustee/update', [updateController::class, 'trustee_update']);
 
 //edit trustee link
 Route::post('/admin/update', [updateController::class, 'admin_update']);
+
+//edit event link
+Route::post('/applicationevent/update', [updateController::class, 'application_event_update']);
 
 
 //print Application link
