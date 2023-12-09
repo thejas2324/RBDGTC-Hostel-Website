@@ -20,7 +20,7 @@
                 <div class="carousel-item">
                     <img src="/assets/img/hostel_images/suggi.jpeg" style="max-width:100%" id="img1" alt>
                     <div class="carousel-caption d-none d-md-block">
-                        <h1 style="color:bisque">Suggi Fest-2023</h1>
+                        <!-- <h1 style="color:bisque">Suggi Fest-2023</h1> -->
                     </div>
                 </div>
                 <!-- <div class="carousel-item">

@@ -83,7 +83,7 @@
                         <div class="social-icon-five">
                             <ul class="nav">
                                 <li>
-                                    <a href="#" target="_blank" class="twitter-icon">
+                                    <a href="https://instagram.com/rbdgtc?igshid=NzZlODBkYWE4Ng==" target="_blank" class="twitter-icon">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
@@ -98,7 +98,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" class="youtube-icon">
+                                    <a href="http://www.youtube.com/@rbdgtchostel3648" target="_blank" class="youtube-icon">
                                         <i class="fab fa-youtube"></i>
                                     </a>
                                 </li>
