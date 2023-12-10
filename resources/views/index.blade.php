@@ -12,7 +12,7 @@
             </ol>
             <div class="carousel-inner" >
                 <div class="carousel-item active">
-                    <img src="/assets/img/hostel_images/hostel_image.jpg" style="max-width:100%" id="img1" alt>
+                    <img src="/assets/img/hostel_images/hostel_image.jpg"  style="max-width:100%" id="img1" alt>
                     <div class="carousel-caption d-none d-md-block">
                         <h1 style="color:bisque">Rao Bahadur Dharmapravartha Gubbi Thotadappa Charities, Bengaluru-23</h1>
                     </div>
