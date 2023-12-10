@@ -48,7 +48,7 @@
             <h3>Update</h3>
         </div>
      -->
-        <div class="col-md-12">
+        <div class="col-md-12" >
             <marquee behavior="scroll" direction="left" id="myMarquee">
                 <ul>
                     @if($application_event->count() >0)
